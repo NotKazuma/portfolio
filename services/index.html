@@ -33,6 +33,22 @@
     --bg: #030a0f !important;
     --panel: #061117 !important;
   }
+  header {
+    background: rgba(3,10,15,.92) !important;
+    border-bottom-color: var(--line) !important;
+  }
+  header.scrolled {
+    box-shadow: 0 4px 24px rgba(0,0,0,.6) !important;
+  }
+  .navlinks a::before {
+    color: var(--amber) !important;
+  }
+  .navlinks a.active {
+    color: var(--text) !important;
+  }
+  .navlinks a.active::before {
+    opacity: 1 !important;
+  }
 </style>
 </head>
 
