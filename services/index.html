@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Afif Aiman — Educator, Video Editor & Web Developer. Portfolio showcasing film production, post-production work, and web development projects.">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Afif Aiman — Portfolio">
+  <meta property="og:description" content="Educator, Video Editor & Web Developer. Portfolio showcasing film production, post-production work, and web development projects.">
+  <meta property="og:image" content="../assets/images/afif_portrait.jpg">
+
+  <title>Afif Aiman — Portfolio</title>
+
+  <!-- Preconnect for fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/components.css">
+<style>
+  :root {
+    --amber: #00e5ff !important;
+    --panel-2: #05161e !important;
+    --bg: #030a0f !important;
+    --panel: #061117 !important;
+  }
+</style>
+</head>
+
+<body>
+
+  <!-- ================================================================
+     PAGE LOADER
+================================================================ -->
+  <div id="page-loader">
+    <div class="loader-name">Afif <span>Aiman</span></div>
+    <div class="loader-tc mono">LOADING REEL…</div>
+    <div class="loader-bar-wrap">
+      <div class="loader-bar"></div>
+    </div>
+  </div>
+
+  <!-- ================================================================
+     HEADER / NAV
+================================================================ -->
+  <header>
+    <nav class="container">
+      <a href="#top" class="brand">
+        <span class="name">AFIF AIMAN</span>
+        <span class="role">Educator &amp; Freelance Digital Creator</span>
+      </a>
+      <div class="navlinks" id="navlinks">
+        <a href="../index.html#about">About Me</a>
+        <a href="../index.html#work">Showcase</a>
+        <a href="../index.html#gallery">Gallery</a>
+        <a href="../index.html#resume">Resume</a>
+        <a href="#" style="color: var(--amber); font-weight: 600;">Hire Me</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ================================================================
+     HERO
+================================================================ -->
+    <section class="hero" id="top" style="display: flex; align-items: center; justify-content: center; text-align: center; min-height: 80vh; padding-top: 100px;">
+    <div class="hero-text reveal">
+      <span class="eyebrow" style="color: var(--amber);">// DIGITAL SOLUTIONS AGENCY</span>
+      <h1 style="font-size: 4.5rem; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 20px;">ENGINEERING <span style="color: var(--amber);">THE WEB.</span></h1>
+      <p style="color:var(--muted); max-width: 600px; margin: 0 auto 2rem auto; font-size: 1.15rem; line-height: 1.6;">
+        Specializing in rapid MVP development, full-stack applications, and high-performance digital experiences. From concept to deployment in record time.
+      </p>
+      <div style="display: flex; gap: 15px; justify-content: center;">
+        <a href="#pricing" class="cta-btn" style="background: var(--amber); color: #000;">VIEW PRICING &darr;</a>
+        <a href="#work" class="cta-btn" style="background: transparent; border: 1px solid var(--amber); color: var(--amber);">PROJECTS</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  
+
+  <!-- ================================================================
+     PRODUCTION SHOWCASE
+================================================================ -->
+  <section id="work">
+    <div class="sec-head reveal">
+      <h2>Web Development Showcase</h2>
+      <span class="slate mono">// SYS.PROJECTS</span>
+    </div>
+
+    <!-- Project Type Filters -->
+    <div class="showcase-filters reveal">
+      <button class="filter-btn active font-mono" data-filter="all">ALL // 04</button>
+      <button class="filter-btn font-mono" data-filter="web">WEBSITES // 04</button>
+    </div>
+
+    <div class="portfolio-grid reveal-stagger">
+
+      <!-- Card 6 (Web Development) -->
+      <div class="project-card web-project" data-category="web">
+<a href="https://clinquant-gecko-3208d1.netlify.app" target="_blank" rel="noopener" class="thumb-container">
+          <div class="mini-corner tl"></div>
+          <div class="mini-corner tr"></div>
+          <div class="mini-corner bl"></div>
+          <div class="mini-corner br"></div>
+          <div class="play-overlay">
+            <div class="play-btn-circle">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </div>
+            <span class="play-status mono">LIVE PREVIEW</span>
+          </div>
+          <div class="mini-rec"><span class="mini-dot active"></span>ONLINE</div>
+          <img class="web-thumb" src="../assets/images/restoren_screenshot.png" alt="Restoren Website Mockup">
+        </a>
+        <div class="card-details">
+          <div class="card-meta">
+            <span class="eyebrow">Full-Stack Solution</span>
+            <span class="mono" style="font-size:.65rem;color:var(--muted)">DEV_01</span>
+          </div>
+          <h3 class="proj-title">Restoren E-Commerce</h3>
+          <div class="tech-tags">
+            <span>Vanilla JS</span><span>CSS3</span><span>HTML5</span>
+          </div>
+          <p style="color:var(--muted); font-size: 0.85rem; margin: 8px 0; line-height: 1.5;">Architected a responsive, dynamic restaurant ordering interface with high-performance CSS grid layouts and modular JavaScript. Optimized for rapid local deployment.</p>
+<a href="https://celadon-puffpuff-ca293a.netlify.app" target="_blank" rel="noopener" class="card-link">↗ Visit Live Site</a>
+        </div>
+      </div>
+
+      <!-- Card 7 (Web Development) -->
+      <div class="project-card web-project" data-category="web">
+<a href="https://joyful-fenglisu-0a3057.netlify.app" target="_blank" rel="noopener" class="thumb-container">
+          <div class="mini-corner tl"></div>
+          <div class="mini-corner tr"></div>
+          <div class="mini-corner bl"></div>
+          <div class="mini-corner br"></div>
+          <div class="play-overlay">
+            <div class="play-btn-circle">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </div>
+            <span class="play-status mono">LIVE PREVIEW</span>
+          </div>
+          <div class="mini-rec"><span class="mini-dot active"></span>ONLINE</div>
+          <img class="web-thumb" src="../assets/images/wedding_screenshot.png" alt="Wedding Website Mockup">
+        </a>
+        <div class="card-details">
+          <div class="card-meta">
+            <span class="eyebrow">Event Platform</span>
+            <span class="mono" style="font-size:.65rem;color:var(--muted)">DEV_02</span>
+          </div>
+          <h3 class="proj-title">Wedding RSVPs</h3>
+          <div class="tech-tags">
+            <span>Tailwind</span><span>Alpine.js</span><span>Supabase</span>
+          </div>
+          <p style="color:var(--muted); font-size: 0.85rem; margin: 8px 0; line-height: 1.5;">Built a seamless digital invitation and RSVP management system. Delivered a 100% success rate on guest data capture with zero downtime during the event month.</p>
+<a href="https://joyful-fenglisu-0a3057.netlify.app" target="_blank" rel="noopener" class="card-link">↗ Visit Live Site</a>
+        </div>
+      </div>
+
+      <!-- Card 8 (Web Development) -->
+      <div class="project-card web-project" data-category="web">
+<a href="https://astounding-salmiakki-6d074b.netlify.app" target="_blank" rel="noopener" class="thumb-container">
+          <div class="mini-corner tl"></div>
+          <div class="mini-corner tr"></div>
+          <div class="mini-corner bl"></div>
+          <div class="mini-corner br"></div>
+          <div class="play-overlay">
+            <div class="play-btn-circle">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </div>
+            <span class="play-status mono">LIVE PREVIEW</span>
+          </div>
+          <div class="mini-rec"><span class="mini-dot active"></span>ONLINE</div>
+          <img class="web-thumb" src="../assets/images/datacenter_screenshot.png" alt="Cybersecurity Website Mockup">
+        </a>
+        <div class="card-details">
+          <div class="card-meta">
+            <span class="eyebrow">B2B SaaS Portal</span>
+            <span class="mono" style="font-size:.65rem;color:var(--muted)">DEV_03</span>
+          </div>
+          <h3 class="proj-title">Cyber Data Center</h3>
+          <div class="tech-tags">
+            <span>React</span><span>Next.js</span><span>Vercel</span>
+          </div>
+          <p style="color:var(--muted); font-size: 0.85rem; margin: 8px 0; line-height: 1.5;">Developed a high-fidelity B2B marketing site for a cybersecurity firm. Focused on enterprise-grade typography, dark mode aesthetics, and top-tier Lighthouse performance scores.</p>
+<a href="https://astounding-salmiakki-6d074b.netlify.app" target="_blank" rel="noopener" class="card-link">↗ Visit Live Site</a>
+        </div>
+      </div>
+
+      <!-- Card 9 (Web Development - Clothing) -->
+      <div class="project-card web-project" data-category="web">
+<a href="https://clinquant-gecko-3208d1.netlify.app" target="_blank" rel="noopener" class="thumb-container">
+          <div class="mini-corner tl"></div>
+          <div class="mini-corner tr"></div>
+          <div class="mini-corner bl"></div>
+          <div class="mini-corner br"></div>
+          <div class="play-overlay">
+            <div class="play-btn-circle">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </div>
+            <span class="play-status mono">LIVE PREVIEW</span>
+          </div>
+          <div class="mini-rec"><span class="mini-dot active"></span>ONLINE</div>
+          <img class="web-thumb" src="../clothing/assets/clothing_screenshot.png" alt="AURA Clothing Mockup">
+        </a>
+        <div class="card-details">
+          <div class="card-meta">
+            <span class="eyebrow">Interactive Demo</span>
+            <span class="mono" style="font-size:.65rem;color:var(--muted)">DEV_04</span>
+          </div>
+          <h3 class="proj-title">AURA Fashion</h3>
+          <div class="tech-tags">
+            <span>AI-Stack</span><span>Glassmorphism</span><span>JS</span>
+          </div>
+          <p style="color:var(--muted); font-size: 0.85rem; margin: 8px 0; line-height: 1.5;">Engineered a premium clothing store demo utilizing advanced glassmorphism, 3D CSS tilt effects, and generative placeholder art. Executed the entire redesign via AI tooling.</p>
+<a href="https://clinquant-gecko-3208d1.netlify.app" target="_blank" rel="noopener" class="card-link">↗ Visit Live Site</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  
+
+  <!-- ================================================================
+     PRICING
+================================================================ -->
+  <section id="pricing">
+    <div class="sec-head reveal">
+      <h2>Pricing & Services</h2>
+      <span class="slate mono">// SYS.PRICING</span>
+    </div>
+    
+    <div style="display: flex; justify-content: flex-end; margin-bottom: 20px; max-width: 1200px; margin-left: auto; margin-right: auto; padding: 0 4%;">
+      <select id="currency-selector" style="background: var(--panel-2); color: #fff; border: 1px solid var(--amber); padding: 8px 12px; border-radius: 4px; outline: none; cursor: pointer; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem;">
+        <option value="MYR">MYR (Ringgit)</option>
+        <option value="USD">USD (Dollar)</option>
+        <option value="EUR">EUR (Euro)</option>
+        <option value="GBP">GBP (Pound)</option>
+        <option value="SGD">SGD (Singapore)</option>
+      </select>
+    </div>
+    
+    <div class="pricing-grid reveal">
+      <!-- Tier 1 -->
+      <div class="pricing-card">
+        <span class="pc-difficulty">Low Difficulty</span>
+        <h3 class="pc-title">Static / Landing</h3>
+        <div class="pc-price"><span class="price-value" data-myr="800">RM 800</span> <span>- <span class="price-value" data-myr="1500">RM 1,500</span></span></div>
+        <ul class="pc-features">
+          <li>Responsive Design</li>
+          <li>SEO Optimized</li>
+          <li>Contact Form Integration</li>
+          <li>Basic Animations (AOS/CSS)</li>
+        </ul>
+      </div>
+
+      <!-- Tier 2 -->
+      <div class="pricing-card featured">
+        <span class="pc-difficulty">Moderate Difficulty</span>
+        <h3 class="pc-title">Rapid MVP</h3>
+        <div class="pc-price"><span class="price-value" data-myr="2500">RM 2,500</span> <span>- <span class="price-value" data-myr="5000">RM 5,000</span></span></div>
+        <ul class="pc-features">
+          <li>Custom Backend (Supabase/Firebase)</li>
+          <li>Database Integration</li>
+          <li>Dynamic Content Rendering</li>
+          <li>User Authentication</li>
+        </ul>
+      </div>
+
+      <!-- Tier 3 -->
+      <div class="pricing-card">
+        <span class="pc-difficulty">High Difficulty</span>
+        <h3 class="pc-title">Full-Stack App</h3>
+        <div class="pc-price">Custom <span>Quote</span></div>
+        <ul class="pc-features">
+          <li>Complex State Management (React/Next)</li>
+          <li>Advanced API Development</li>
+          <li>Physics/WebGL Integration</li>
+          <li>B2B Portal Architecture</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  
+
+  <!-- ================================================================
+     CONTACT
+================================================================ -->
+  <section id="contact">
+    <div class="sec-head reveal">
+      <h2>Get In Touch</h2>
+      <span class="slate mono">// SYS.CONTACT</span>
+    </div>
+    <div class="contact-section reveal">
+      <div class="contact-grid">
+        <!-- Info Block -->
+        <div class="contact-info-block">
+          <span class="eyebrow">Contact</span>
+          <h3>Let's Collaborate.</h3>
+          <p style="color:var(--muted);line-height:1.75;margin-bottom:28px;">Open to digital development, production
+            pipelines, and media consultations. Reach out via any channel below.</p>
+          <div class="contact-line-item">
+            <span class="k">Call</span>
+            <a href="tel:+60146463815"><span class="v">6014-646 3815</span></a>
+          </div>
+          <div class="contact-line-item">
+            <span class="k">Write</span>
+            <a href="mailto:aimanskspp@gmail.com"><span class="v">aimanskspp@gmail.com</span></a>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm" action="https://formsubmit.co/aimanskspp@gmail.com" method="POST"
+          novalidate>
+          <input type="hidden" name="_subject" value="New Premium Project Inquiry">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="">
+          <input type="text" name="_honey" style="display:none">
+
+          <div class="form-group">
+            <label for="contact-name">Full Name / Company</label>
+            <input type="text" id="contact-name" name="name" placeholder="e.g. Ahmad Razif" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="contact-email">Email Address</label>
+            <input type="email" id="contact-email" name="email" placeholder="you@example.com" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="project-type">Project Type</label>
+            <select id="project-type" name="project_type" required>
+              <option value="" disabled selected>Select an option...</option>
+              <option value="Rapid MVP">Rapid MVP Build (2 Weeks)</option>
+              <option value="Full-Stack">Full-Stack Application</option>
+              <option value="UI/UX Revamp">UI/UX Redesign & Revamp</option>
+              <option value="Consulting">Technical Consulting</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="timeline">Desired Timeline</label>
+            <select id="timeline" name="timeline" required>
+              <option value="" disabled selected>Select an option...</option>
+              <option value="ASAP">ASAP (Expedited)</option>
+              <option value="Within 1 Month">Within 1 Month</option>
+              <option value="Flexible">Flexible</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="contact-message">Scope Description</label>
+            <textarea id="contact-message" name="message" placeholder="Briefly describe your project's core objectives and requirements..." required minlength="20"></textarea>
+          </div>
+          <button type="submit" class="submit-btn" id="submitBtn">Submit Inquiry</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+     FOOTER
+================================================================ -->
+  <footer>
+    <div class="foot-inner">
+      <div>
+        <h3>Let's collaborate.</h3>
+        <p>Open to digital development, production pipelines, and media consultations.</p>
+      </div>
+      <div class="foot-col">
+        <span class="eyebrow">Contact</span>
+        <a class="contact-line" href="tel:+60146463815">
+          <span class="k">Call</span><span class="v">6014-646 3815</span>
+        </a>
+        <a class="contact-line" href="mailto:aimanskspp@gmail.com">
+          <span class="k">Write</span><span class="v">aimanskspp@gmail.com</span>
+        </a>
+      </div>
+      <div class="foot-col">
+        <span class="eyebrow">Navigate</span>
+        <a class="contact-line" href="../index.html#about"><span class="v">About Me</span></a>
+        <a class="contact-line" href="../index.html#work"><span class="v">Showcase</span></a>
+        <a class="contact-line" href="../index.html#resume"><span class="v">Resume</span></a>
+        <a class="contact-line" href="../index.html#contact"><span class="v">Contact</span></a>
+      </div>
+    </div>
+    <div class="copyright">
+      <span>© 2026 Afif Aiman. All content credit to me.</span>
+      <span>Design &amp; Visual Communication · Kazuma</span>
+    </div>
+  </footer>
+
+  <!-- ================================================================
+     VIDEO MODAL
+================================================================ -->
+  <div class="video-modal" id="videoModal" role="dialog" aria-modal="true" aria-label="Video Player">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose" aria-label="Close player">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <div class="video-wrapper">
+        <iframe id="modalIframe" src="" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      </div>
+      <div class="modal-fallback-bar">
+        <span>Browser blocking preview?</span>
+        <a id="modalFallbackLink" href="" target="_blank" rel="noopener" class="fallback-link">Stream directly on Google
+          Drive ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================================================
+     SCRIPTS (deferred, order matters)
+================================================================ -->
+  <script src="../js/main.js" defer></script>
+  <script src="../js/modal.js" defer></script>
+  <script src="../js/interactions.js" defer></script>
+  <script src="../js/pricing.js" defer></script>
+
+</body>
+
+</html>

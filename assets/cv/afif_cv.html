@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Afif Aiman — Curriculum Vitae</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ---- SCREEN WRAPPER ---- */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { font-size: 16px; }
+    body {
+      background: #F5F3EE;
+      font-family: 'Inter', sans-serif;
+      color: #1A1815;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ---- PRINT BUTTON (screen only) ---- */
+    .print-bar {
+      background: #16140F;
+      color: #F2EFE6;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 32px;
+      gap: 16px;
+    }
+    .print-bar span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .72rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: #9A9284;
+    }
+    .print-bar button {
+      background: #E8823D;
+      color: #16140F;
+      border: none;
+      padding: 10px 22px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .72rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity .2s;
+    }
+    .print-bar button:hover { opacity: .85; }
+    @media print { .print-bar { display: none; } }
+
+    /* ---- PAGE ---- */
+    .page {
+      width: 210mm;
+      height: 297mm;
+      margin: 20px auto;
+      background: #fff;
+      padding: 10mm 14mm;
+      box-shadow: 0 4px 32px rgba(0,0,0,.12);
+      position: relative;
+      overflow: hidden;
+    }
+    @media print {
+      @page { size: A4; margin: 0; }
+      body { background: #fff; }
+      .page {
+        margin: 0;
+        box-shadow: none;
+        padding: 10mm 14mm;
+        width: 210mm;
+        height: 297mm;
+        overflow: hidden;
+      }
+    }
+
+    /* ---- HEADER ---- */
+    .cv-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: start;
+      border-bottom: 2px solid #E8823D;
+      padding-bottom: 8px;
+      margin-bottom: 10px;
+    }
+    .cv-name {
+      font-family: 'Anton', sans-serif;
+      font-size: 1.9rem;
+      line-height: 1;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+    }
+    .cv-name span { color: #E8823D; }
+    .cv-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .68rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #6B6155;
+      margin-top: 4px;
+    }
+    .cv-contacts {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      align-items: flex-end;
+    }
+    .cv-contacts a, .cv-contacts span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .65rem;
+      color: #6B6155;
+      text-decoration: none;
+    }
+    .cv-contacts a:hover { color: #E8823D; }
+
+    /* ---- BODY LAYOUT ---- */
+    .cv-body {
+      display: grid;
+      grid-template-columns: 1fr 200px;
+      gap: 18px;
+    }
+
+    /* ---- SECTIONS ---- */
+    .cv-section { margin-bottom: 5px; }
+    .cv-section-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .62rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: #E8823D;
+      border-bottom: 1px solid #E8D5C5;
+      padding-bottom: 4px;
+      margin-bottom: 10px;
+    }
+
+    /* ---- EXPERIENCE / EDU ITEMS ---- */
+    .cv-item { margin-bottom: 5px; }
+    .cv-item-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .cv-item h4 {
+      font-size: .85rem;
+      font-weight: 700;
+      color: #1A1815;
+    }
+    .cv-item .date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .62rem;
+      color: #9A9284;
+      white-space: nowrap;
+    }
+    .cv-item .subtitle {
+      font-size: .73rem;
+      color: #6B6155;
+      font-weight: 600;
+      margin: 1px 0 3px;
+    }
+    .cv-item p {
+      font-size: .75rem;
+      color: #4A4540;
+      line-height: 1.5;
+    }
+    .cv-item ul {
+      padding-left: 14px;
+      font-size: .73rem;
+      color: #4A4540;
+      line-height: 1.4;
+      margin-top: 3px;
+    }
+    .cv-item li {
+      margin-bottom: 1px;
+    }
+
+    /* ---- SIDEBAR ---- */
+    .cv-sidebar { border-left: 1px solid #EDE8E0; padding-left: 20px; }
+
+    /* ---- SKILL BARS ---- */
+    .skill-item { margin-bottom: 8px; }
+    .skill-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: .72rem;
+      margin-bottom: 3px;
+      font-weight: 500;
+    }
+    .skill-pct {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .62rem;
+      color: #9A9284;
+    }
+    .skill-bar { height: 4px; background: #F0ECE6; }
+    .skill-fill { height: 100%; background: #E8823D; }
+
+    /* ---- TAGS ---- */
+    .tag-list { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 2px; }
+    .tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .58rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      background: #F5F0E8;
+      color: #6B6155;
+      padding: 3px 6px;
+      border: 1px solid #E8D5C5;
+    }
+
+    /* ---- PRODUCTIONS ---- */
+    .productions-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 16px;
+    }
+    .prod-item {
+      font-size: .75rem;
+    }
+    .prod-item strong {
+      font-weight: 600;
+      color: #1A1815;
+      display: block;
+    }
+    .prod-sub {
+      font-size: .68rem;
+      color: #6B6155;
+      display: block;
+      margin-top: 1px;
+    }
+
+    /* ---- FOOTER ---- */
+    .cv-footer {
+      position: absolute;
+      bottom: 10mm;
+      left: 14mm;
+      right: 14mm;
+      padding-top: 8px;
+      border-top: 1px solid #EDE8E0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .cv-footer span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .58rem;
+      color: #9A9284;
+      letter-spacing: .06em;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Screen print bar -->
+<div class="print-bar">
+  <span>Afif Aiman — Curriculum Vitae</span>
+  <button onclick="window.print()">⬇ Save as PDF (Ctrl+P)</button>
+</div>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="cv-header">
+    <div>
+      <div class="cv-name">Afif <span>Aiman</span></div>
+      <div class="cv-title">Educator · Video Editor · Web Developer</div>
+    </div>
+    <div class="cv-contacts">
+      <span>Johor, Malaysia</span>
+      <a href="tel:+60146463815">+60 14-646 3815</a>
+      <a href="mailto:aimanskspp@gmail.com">aimanskspp@gmail.com</a>
+    </div>
+  </header>
+
+  <!-- BODY -->
+  <div class="cv-body">
+
+    <!-- MAIN COLUMN -->
+    <main>
+
+      <!-- Profile -->
+      <div class="cv-section">
+        <div class="cv-section-title">Profile</div>
+        <p style="font-size:.73rem;color:#4A4540;line-height:1.5;">
+Digital creator and educator specializing in film production, web development, and post-production video editing. Balances academic instruction with active freelance digital services.
+        </p>
+      </div>
+
+      <!-- Experience -->
+      <div class="cv-section">
+        <div class="cv-section-title">Work Experience</div>
+
+        <div class="cv-item">
+          <div class="cv-item-head">
+            <h4>Sekolah Agama Taman Bayu Damai</h4>
+            <span class="date">Active</span>
+          </div>
+          <div class="subtitle">Teacher</div>
+          <ul>
+            <li>Constructing and delivering classroom curricula aligned to educational standards.</li>
+            <li>Administering examination assessments and tracking student performance data.</li>
+            <li>Managing institutional record-keeping for student documentation.</li>
+          </ul>
+        </div>
+
+        <div class="cv-item">
+          <div class="cv-item-head">
+            <h4>Freelance Digital Creator</h4>
+            <span class="date">Active</span>
+          </div>
+          <div class="subtitle">Web Developer &amp; Video Editor</div>
+          <ul>
+            <li>Designing and developing responsive web interfaces and landing experiences for clients.</li>
+            <li>Delivering end-to-end post-production editing and motion graphics.</li>
+            <li>Managing local development workflows and deployment handoff processes for clients.</li>
+          </ul>
+        </div>
+
+        <div class="cv-item">
+          <div class="cv-item-head">
+            <h4>Infra Minda Global Sdn. Bhd.</h4>
+            <span class="date">Jan – Jul 2025</span>
+          </div>
+          <div class="subtitle">Creative Production Intern</div>
+          <ul>
+            <li>Produced and edited promotional video campaigns for government agencies (PLANMalaysia &amp; MINDEF).</li>
+            <li>Assisted in virtual studio setups, live-streaming webinar productions, and P.A. audio control.</li>
+          </ul>
+        </div>
+
+        <div class="cv-item">
+          <div class="cv-item-head">
+            <h4>ICC JB (Kampus Bandar Raya Johor Bahru)</h4>
+            <span class="date">Jul – Dec 2025</span>
+          </div>
+          <div class="subtitle">Creative Media Intern</div>
+          <ul>
+            <li>Produced photography and videography for campus events and social media channels.</li>
+            <li>Assisted in media documentation and creative visual communications for institutional content.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Education & Self-Directed Learning -->
+      <div class="cv-section">
+        <div class="cv-section-title">Education &amp; Self-Directed Learning</div>
+
+        <div class="cv-item">
+          <div class="cv-item-head">
+            <h4>Politeknik Tuanku Syed Sirajuddin (PTSS)</h4>
+            <span class="date">2022 – 2025</span>
+          </div>
+          <div class="subtitle">Diploma in Digital Creative and Video Production</div>
+          <p>Dept. of Design &amp; Visual Communication. Specialized in film production, photography, videography, art direction, and production management.</p>
+        </div>
+
+        <div class="cv-item">
+          <div class="cv-item-head">
+            <h4>Sekolah Menengah Agama Attarbiah Al-Islamiah</h4>
+            <span class="date">Batu Pahat, Johor</span>
+          </div>
+          <div class="subtitle">Secondary School Certificate (SPM)</div>
+          <p>Completed with a strong foundation in academic excellence and values-based education.</p>
+        </div>
+
+        <div class="cv-item">
+          <div class="cv-item-head">
+            <h4>Web Development — Self-Study</h4>
+            <span class="date">2024 – Present</span>
+          </div>
+          <div class="subtitle">Independent · Project-Based &amp; Online Resources</div>
+          <p>Self-taught HTML, CSS &amp; JavaScript. Built and deployed 5+ responsive sites via GitHub Pages; studied CSS animations, flexbox/grid, and DOM manipulation.</p>
+        </div>
+      </div>
+
+      <!-- Productions -->
+      <div class="cv-section">
+        <div class="cv-section-title">Selected Productions</div>
+        <div class="productions-grid">
+          <div class="prod-item">
+            <strong>Short Film</strong>
+            <span class="prod-sub">Writer · Director · Editor</span>
+          </div>
+          <div class="prod-item">
+            <strong>VFX Reel</strong>
+            <span class="prod-sub">Post-Prod · VFX Compositor</span>
+          </div>
+          <div class="prod-item">
+            <strong>Motion Ads</strong>
+            <span class="prod-sub">Commercial · Motion Designer</span>
+          </div>
+          <div class="prod-item">
+            <strong>Cloning Project</strong>
+            <span class="prod-sub">VFX Compositing · Split-Screen</span>
+          </div>
+          <div class="prod-item">
+            <strong>Logo Motion</strong>
+            <span class="prod-sub">Motion Graphics · Brand Animation</span>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- SIDEBAR -->
+    <aside class="cv-sidebar">
+
+      <!-- Skills -->
+      <div class="cv-section">
+        <div class="cv-section-title">Technical Skills</div>
+        <div class="skill-item">
+          <div class="skill-label"><span>Adobe Illustrator</span><span class="skill-pct">95%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-label"><span>Adobe Premiere Pro</span><span class="skill-pct">93%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:93%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-label"><span>Adobe After Effects</span><span class="skill-pct">79%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:79%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-label"><span>Web Dev (HTML/CSS/JS)</span><span class="skill-pct">85%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="cv-section">
+        <div class="cv-section-title">Tools &amp; Software</div>
+        <div class="tag-list">
+          <span class="tag">Premiere Pro</span>
+          <span class="tag">After Effects</span>
+          <span class="tag">Illustrator</span>
+          <span class="tag">Photoshop</span>
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">VS Code</span>
+          <span class="tag">DaVinci Resolve</span>
+          <span class="tag">GitHub</span>
+          <span class="tag">Git</span>
+        </div>
+      </div>
+
+      <!-- Disciplines -->
+      <div class="cv-section">
+        <div class="cv-section-title">Disciplines</div>
+        <div class="tag-list">
+          <span class="tag">Film Production</span>
+          <span class="tag">Post-Production</span>
+          <span class="tag">Motion Graphics</span>
+          <span class="tag">VFX</span>
+          <span class="tag">Web Development</span>
+          <span class="tag">Photography</span>
+          <span class="tag">Videography</span>
+          <span class="tag">Pedagogy</span>
+        </div>
+      </div>
+
+      <!-- Languages -->
+      <div class="cv-section">
+        <div class="cv-section-title">Languages</div>
+        <div class="cv-item">
+          <div class="skill-label"><span>Bahasa Malaysia</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:100%"></div></div>
+        </div>
+        <div class="cv-item">
+          <div class="skill-label"><span>English</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+        </div>
+      </div>
+
+    </aside>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="cv-footer">
+    <span>Afif Aiman · aimanskspp@gmail.com</span>
+    <span>Updated 2026</span>
+  </div>
+
+</div>
+
+</body>
+</html>

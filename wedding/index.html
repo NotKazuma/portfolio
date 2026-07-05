@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="You are cordially invited to celebrate the love and union of Faris & Elysa. Find details of the Ceremony, Reception, countdown timer, and RSVP online.">
+  <title>The Wedding of Faris &amp; Elysa</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ================================================================
+       1. HERO & COUNTDOWN
+       ================================================================ -->
+  <header class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="wedding-subtitle">THE WEDDING OF</span>
+      <h1>Faris &amp; Elysa</h1>
+      <p class="wedding-date-text">Saturday, October 10, 2026</p>
+      
+      <!-- Countdown Timer -->
+      <div class="countdown-container" id="countdown" data-date="2026-10-10T11:00:00">
+        <div class="time-block">
+          <span class="number" id="days">00</span>
+          <span class="label">Days</span>
+        </div>
+        <div class="time-block">
+          <span class="number" id="hours">00</span>
+          <span class="label">Hours</span>
+        </div>
+        <div class="time-block">
+          <span class="number" id="minutes">00</span>
+          <span class="label">Mins</span>
+        </div>
+        <div class="time-block">
+          <span class="number" id="seconds">00</span>
+          <span class="label">Secs</span>
+        </div>
+      </div>
+      
+      <a href="#rsvp" class="rsvp-btn">Reserve Your Presence</a>
+    </div>
+  </header>
+
+  <!-- Navigation Bar -->
+  <nav class="sticky-nav" id="wedding-nav">
+    <div class="nav-container">
+      <a href="#" class="nav-brand">F &amp; E</a>
+      <div class="nav-links" id="nav-links-menu">
+        <a href="#story" class="nav-link">Our Story</a>
+        <a href="#events" class="nav-link">Events</a>
+        <a href="#rsvp" class="nav-link">RSVP</a>
+        <a href="#guestbook" class="nav-link">Wishes</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ================================================================
+       2. OUR STORY (Timeline)
+       ================================================================ -->
+  <section id="story" class="section-padding">
+    <div class="container">
+      <div class="section-header">
+        <span class="subtitle">Love Story</span>
+        <h2>How We Met</h2>
+        <div class="accent-line"></div>
+      </div>
+      
+      <div class="timeline">
+        <div class="timeline-item left reveal">
+          <div class="timeline-badge"><i class="fa-solid fa-heart"></i></div>
+          <div class="timeline-panel">
+            <span class="date">May 15, 2021</span>
+            <h3>First Encounter</h3>
+            <p>Our paths crossed at a small bookstore in Kuala Lumpur. Over a shared interest in classical literature, a simple conversation turned into hours of endless chatter.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item right reveal">
+          <div class="timeline-badge"><i class="fa-solid fa-mug-hot"></i></div>
+          <div class="timeline-panel">
+            <span class="date">July 20, 2021</span>
+            <h3>The First Date</h3>
+            <p>A quiet evening at a small coffee shop. What was supposed to be a short coffee break stretched into a late dinner under the warm city lights. That was the day we knew this was special.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item left reveal">
+          <div class="timeline-badge"><i class="fa-solid fa-ring"></i></div>
+          <div class="timeline-panel">
+            <span class="date">December 24, 2025</span>
+            <h3>The Proposal</h3>
+            <p>Under the canopy of stars on a chilly evening in Cameron Highlands, Faris popped the question, and Elysa whispered "Yes" with tears of joy. We set off on our path to forever.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       3. EVENTS SECTION
+       ================================================================ -->
+  <section id="events" class="section-padding alt-bg">
+    <div class="container">
+      <div class="section-header">
+        <span class="subtitle">Celebration Details</span>
+        <h2>Wedding Events</h2>
+        <div class="accent-line"></div>
+      </div>
+      
+      <div class="events-grid">
+        <!-- Event 1: Nikah -->
+        <div class="event-card reveal">
+          <div class="event-icon"><i class="fa-solid fa-mosque"></i></div>
+          <h3>Solemnization (Nikah)</h3>
+          <div class="event-details">
+            <p class="time"><i class="fa-regular fa-clock"></i> 10:00 AM – 11:30 AM</p>
+            <p class="venue"><i class="fa-solid fa-location-dot"></i> Masjid Wilayah Persekutuan, KL</p>
+            <p class="dress"><i class="fa-solid fa-shirt"></i> Theme: Pure White / Pastel Cream</p>
+          </div>
+          <a href="https://maps.google.com" target="_blank" rel="noopener" class="map-link">View Location Map <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        
+        <!-- Event 2: Reception -->
+        <div class="event-card reveal">
+          <div class="event-icon"><i class="fa-solid fa-utensils"></i></div>
+          <h3>Wedding Reception</h3>
+          <div class="event-details">
+            <p class="time"><i class="fa-regular fa-clock"></i> 1:00 PM – 4:00 PM</p>
+            <p class="venue"><i class="fa-solid fa-location-dot"></i> Grand Ballroom, Majestic Hotel, KL</p>
+            <p class="dress"><i class="fa-solid fa-shirt"></i> Theme: Traditional / Elegant Songket</p>
+          </div>
+          <a href="https://maps.google.com" target="_blank" rel="noopener" class="map-link">View Location Map <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       4. RSVP FORM
+       ================================================================ -->
+  <section id="rsvp" class="section-padding rsvp-section">
+    <div class="rsvp-overlay"></div>
+    <div class="container rsvp-container">
+      <div class="rsvp-card-wrapper reveal">
+        <div class="section-header">
+          <span class="subtitle" style="color: var(--amber)">RSVP</span>
+          <h2 style="color: var(--text-light)">Are You Attending?</h2>
+          <p class="rsvp-desc">Kindly reply by September 15, 2026. We look forward to celebrating with you!</p>
+          <div class="accent-line" style="background: var(--amber)"></div>
+        </div>
+        
+        <form id="rsvpForm" class="rsvp-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="rsvp-name">Full Name</label>
+              <input type="text" id="rsvp-name" name="name" placeholder="e.g. Sarah Ahmad" required>
+            </div>
+            <div class="form-group">
+              <label for="rsvp-email">Email Address</label>
+              <input type="email" id="rsvp-email" name="email" placeholder="e.g. sarah@example.com" required>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="rsvp-status">Will you attend?</label>
+              <select id="rsvp-status" name="status" required>
+                <option value="" disabled selected>Select Attendance</option>
+                <option value="attending">Yes, I'll be there!</option>
+                <option value="declining">No, regretfully I cannot make it.</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="rsvp-guests">Number of Guests</label>
+              <select id="rsvp-guests" name="guests">
+                <option value="1">1 Person</option>
+                <option value="2">2 People (Max)</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="rsvp-diet">Dietary Restrictions (If any)</label>
+            <input type="text" id="rsvp-diet" name="diet" placeholder="e.g. Vegetarian, Nut Allergy, None">
+          </div>
+          
+          <div class="form-group">
+            <label for="rsvp-message">Send a Wish to the Couple</label>
+            <textarea id="rsvp-message" name="message" placeholder="Write your heartfelt blessings here..." required></textarea>
+          </div>
+          
+          <button type="submit" id="submitRSVP" class="submit-btn-wedding">Send RSVP &amp; Wishes</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       5. GUESTBOOK / WISHES
+       ================================================================ -->
+  <section id="guestbook" class="section-padding">
+    <div class="container">
+      <div class="section-header">
+        <span class="subtitle">Guestbook</span>
+        <h2>Wishes for Faris &amp; Elysa</h2>
+        <div class="accent-line"></div>
+      </div>
+      
+      <!-- Wishes Scroll Container -->
+      <div class="wishes-wrapper">
+        <div class="wishes-list" id="wishesList">
+          <!-- Dynamically populated via JS -->
+          <div class="wish-card wish-placeholder">
+            <div class="wish-header">
+              <span class="wish-author">Ahmad Faisal</span>
+              <span class="wish-status attending">Attending</span>
+            </div>
+            <p class="wish-text">"Wishing you both a lifetime of love, laughter, and happiness. May your love grow stronger each passing day!"</p>
+          </div>
+          
+          <div class="wish-card wish-placeholder">
+            <div class="wish-header">
+              <span class="wish-author">Nurul Aina</span>
+              <span class="wish-status attending">Attending</span>
+            </div>
+            <p class="wish-text">"Congratulations to Faris & Elysa! So happy for you two. Looking forward to the big day!"</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       FOOTER
+       ================================================================ -->
+  <footer class="wedding-footer">
+    <div class="container">
+      <div class="footer-logo">F &amp; E</div>
+      <p class="footer-quote">"Two souls with but a single thought, two hearts that beat as one."</p>
+      <p class="footer-copyright">&copy; 2026 Faris &amp; Elysa's Wedding. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Success Notification Modal -->
+  <div class="success-modal" id="rsvpSuccessModal" role="dialog" aria-modal="true" aria-label="RSVP Submitted Successfully">
+    <div class="modal-overlay-wedding"></div>
+    <div class="modal-content-wedding">
+      <button class="modal-close-wedding" id="closeRsvpModal">&times;</button>
+      <div class="modal-body-wedding">
+        <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
+        <h2>RSVP Submitted!</h2>
+        <p>Thank you for letting us know. Your wishes have been successfully added to our Guestbook below!</p>
+        <button class="done-btn" id="dismissRsvpModal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
+</body>
+</html>

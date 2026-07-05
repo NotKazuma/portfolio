@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Afif Aiman — Drawing Art & Photography Gallery. A curated collection of pencil sketches, ink illustrations, and photography.">
+  <title>Gallery — Afif Aiman</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* ========== TOKENS ========== */
+    :root {
+      --bg: #0D0C0A;
+      --panel: #141210;
+      --panel-2: #1A1714;
+      --line: #2A2520;
+      --text: #E8E0D4;
+      --muted: #6B6158;
+      --amber: #E8823D;
+      --amber-dim: rgba(232, 130, 61, .12);
+      --radius: 2px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    /* ========== HEADER ========== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(13, 12, 10, .92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 28px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .nav-brand .name {
+      font-family: 'Anton', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: .06em;
+    }
+
+    .nav-brand .sub {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .6rem;
+      color: var(--muted);
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .7rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color .2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-links a.active {
+      color: var(--amber);
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .7rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      padding: 7px 14px;
+      transition: all .2s;
+      background: transparent;
+    }
+
+    .back-btn:hover {
+      border-color: var(--amber);
+      color: var(--amber);
+    }
+
+    /* ========== HERO ========== */
+    .gallery-hero {
+      position: relative;
+      height: 320px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .gallery-hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('./images/drawing_hero.png');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(.35);
+      transition: background-image .6s ease;
+
+      /* Fallback if hero images are missing */
+      background-color: rgba(20, 18, 16, .55);
+      background-image: linear-gradient(135deg, rgba(232, 130, 61, .10), rgba(13, 12, 10, .65));
+    }
+
+    .gallery-hero-bg.photo-bg {
+      background-image: linear-gradient(135deg, rgba(232, 130, 61, .14), rgba(13, 12, 10, .68));
+    }
+
+    .gallery-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, var(--bg) 0%, transparent 60%);
+    }
+
+    .gallery-hero-text {
+      position: relative;
+      z-index: 2;
+      padding: 40px 48px;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .gallery-hero-text .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .65rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--amber);
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .gallery-hero-text h1 {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    .gallery-hero-text h1 span {
+      color: var(--amber);
+    }
+
+    /* ========== FILTER TABS ========== */
+    .gallery-controls {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 36px 28px 0;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .gallery-tab {
+      background: transparent;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      padding: 9px 22px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .72rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      transition: all .25s ease;
+    }
+
+    .gallery-tab:hover {
+      border-color: var(--text);
+      color: var(--text);
+    }
+
+    .gallery-tab.active {
+      border-color: var(--amber);
+      color: var(--text);
+      background: var(--amber-dim);
+      box-shadow: 0 0 14px rgba(232, 130, 61, .15);
+    }
+
+    .gallery-count {
+      margin-left: auto;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .65rem;
+      color: var(--muted);
+      letter-spacing: .1em;
+    }
+
+    /* ========== GRID ========== */
+    .gallery-grid {
+      max-width: 1200px;
+      margin: 36px auto 80px;
+      padding: 0 28px;
+      columns: 3 280px;
+      column-gap: 16px;
+    }
+
+    .gallery-item {
+      break-inside: avoid;
+      margin-bottom: 16px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      cursor: pointer;
+      transition: border-color .25s, transform .3s;
+      display: block;
+    }
+
+    .gallery-item:hover {
+      border-color: var(--amber);
+      transform: translateY(-4px);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      display: block;
+      transition: transform .5s ease, filter .4s ease;
+      filter: brightness(.9) grayscale(10%);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.04);
+      filter: brightness(1) grayscale(0%);
+    }
+
+    .gallery-item-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 16px;
+      background: linear-gradient(to top, rgba(13, 12, 10, .92) 0%, transparent 100%);
+      transform: translateY(100%);
+      transition: transform .3s ease;
+    }
+
+    .gallery-item:hover .gallery-item-overlay {
+      transform: translateY(0);
+    }
+
+    .gallery-item-overlay .title {
+      font-size: .88rem;
+      font-weight: 600;
+      margin-bottom: 3px;
+    }
+
+    .gallery-item-overlay .cat {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .6rem;
+      color: var(--amber);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .gallery-item.hide {
+      display: none;
+    }
+
+    /* Upload Placeholder Card */
+    .gallery-placeholder {
+      break-inside: avoid;
+      margin-bottom: 16px;
+      border: 1px dashed var(--line);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 200px;
+      padding: 32px 16px;
+      gap: 12px;
+      text-align: center;
+    }
+
+    .gallery-placeholder .ph-icon {
+      font-size: 2rem;
+      opacity: .3;
+    }
+
+    .gallery-placeholder p {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .65rem;
+      color: var(--muted);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    /* ========== LIGHTBOX ========== */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      background: rgba(5, 4, 3, .95);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox-inner {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+    }
+
+    .lightbox-inner img {
+      max-width: 100%;
+      max-height: 85vh;
+      object-fit: contain;
+      border: 1px solid var(--line);
+    }
+
+    .lightbox-info {
+      padding: 14px 0 0;
+    }
+
+    .lightbox-info .title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .lightbox-info .cat {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .65rem;
+      color: var(--amber);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -44px;
+      right: 0;
+      background: transparent;
+      border: 1px solid var(--line);
+      color: var(--text);
+      width: 36px;
+      height: 36px;
+      font-size: 1.2rem;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color .2s, color .2s;
+    }
+
+    .lightbox-close:hover {
+      border-color: var(--amber);
+      color: var(--amber);
+    }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(13, 12, 10, .8);
+      border: 1px solid var(--line);
+      color: var(--text);
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      transition: border-color .2s, color .2s;
+    }
+
+    .lightbox-nav:hover {
+      border-color: var(--amber);
+      color: var(--amber);
+    }
+
+    .lightbox-nav.prev {
+      left: -56px;
+    }
+
+    .lightbox-nav.next {
+      right: -56px;
+    }
+
+    /* ========== DIVIDER ========== */
+    .divider {
+      height: 1px;
+      background: var(--line);
+      max-width: 1200px;
+      margin: 0 auto 60px;
+      padding: 0 28px;
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 28px;
+      text-align: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .65rem;
+      color: var(--muted);
+      letter-spacing: .08em;
+    }
+
+    footer a {
+      color: var(--amber);
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 600px) {
+      .gallery-hero {
+        height: 220px;
+      }
+
+      .gallery-hero-text {
+        padding: 28px 20px;
+      }
+
+      .gallery-grid {
+        padding: 0 16px;
+        columns: 2 160px;
+      }
+
+      .lightbox-nav.prev {
+        left: -10px;
+      }
+
+      .lightbox-nav.next {
+        right: -10px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    /* ========== ANIMATIONS ========== */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .gallery-item {
+      animation: fadeUp .5s ease both;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-brand">
+        <span class="name">AFIF AIMAN</span>
+        <span class="sub">Drawing &amp; Photography</span>
+      </a>
+      <nav class="nav-links">
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#work">Showcase</a>
+        <a href="../index.html#resume">Resume</a>
+        <a href="../index.html#contact">Contact</a>
+        <a href="./index.html" class="active">Gallery</a>
+      </nav>
+      <a href="../index.html" class="back-btn">← Back to Portfolio</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="gallery-hero" id="galleryHero">
+    <div class="gallery-hero-bg" id="heroBg"></div>
+    <div class="gallery-hero-text">
+      <span class="eyebrow">Creative Works — Visual Art</span>
+      <h1>Drawing &amp; <span>Photography</span></h1>
+    </div>
+  </div>
+
+  <!-- FILTER CONTROLS -->
+  <div class="gallery-controls">
+    <button class="gallery-tab active" id="tabAll" data-filter="all">All Works</button>
+    <button class="gallery-tab" id="tabDrawing" data-filter="drawing">✏️ Drawing Art</button>
+    <button class="gallery-tab" id="tabPhoto" data-filter="photography">📷 Photography</button>
+    <span class="gallery-count" id="galleryCount">8 works</span>
+  </div>
+
+  <!-- GALLERY GRID -->
+  <div class="gallery-grid" id="galleryGrid">
+
+
+    <!-- ===== DRAWING ===== -->
+    <div class="gallery-item" data-category="drawing" data-title="Scribble Study" data-index="1">
+      <img src="./images/IMG_6439.JPG" alt="Scribble Study">
+      <div class="gallery-item-overlay">
+        <div class="title">Scribble Study</div>
+        <div class="cat">Drawing Art</div>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-category="drawing" data-title="Contour Drawing" data-index="2">
+      <img src="./images/IMG_6440.JPG" alt="Contour Drawing">
+      <div class="gallery-item-overlay">
+        <div class="title">Contour Drawing</div>
+        <div class="cat">Drawing Art</div>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-category="drawing" data-title="Hand Study" data-index="3">
+      <img src="./images/IMG_6441.JPG" alt="Hand Study">
+      <div class="gallery-item-overlay">
+        <div class="title">Hand Study</div>
+        <div class="cat">Drawing Art</div>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-category="drawing" data-title="Sheet Composition" data-index="4">
+      <img src="./images/IMG_6442.JPG" alt="Sheet Composition">
+      <div class="gallery-item-overlay">
+        <div class="title">Sheet Composition</div>
+        <div class="cat">Drawing Art</div>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-category="drawing" data-title="Pencil Sketch" data-index="5">
+      <img src="./images/IMG_6443.JPG" alt="Pencil Sketch">
+      <div class="gallery-item-overlay">
+        <div class="title">Pencil Sketch</div>
+        <div class="cat">Drawing Art</div>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-category="drawing" data-title="Stippling Scene" data-index="6">
+      <img src="./images/IMG_6444.JPG" alt="Stippling Scene">
+      <div class="gallery-item-overlay">
+        <div class="title">Stippling Scene</div>
+        <div class="cat">Drawing Art</div>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-category="drawing" data-title="Ink & Contrast" data-index="7">
+      <img src="./images/IMG_6445.JPG" alt="Ink & Contrast">
+      <div class="gallery-item-overlay">
+        <div class="title">Ink &amp; Contrast</div>
+        <div class="cat">Drawing Art</div>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-category="drawing" data-title="Detail Study" data-index="8">
+      <img src="./images/IMG_6446.JPG" alt="Detail Study">
+      <div class="gallery-item-overlay">
+        <div class="title">Detail Study</div>
+        <div class="cat">Drawing Art</div>
+      </div>
+    </div>
+
+    <!-- ===== PHOTOGRAPHY (was missing from grid) ===== -->
+    <div class="gallery-item" data-category="photography" data-title="Portrait Frame" data-index="9">
+      <img src="./photo/IMG_0111.jpg" alt="Portrait Frame">
+      <div class="gallery-item-overlay">
+        <div class="title">Portrait Frame</div>
+        <div class="cat">Photography</div>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-category="photography" data-title="Urban Building" data-index="10">
+      <img src="./photo/IMG_0194.jpg" alt="Urban Building">
+      <div class="gallery-item-overlay">
+        <div class="title">Urban Building</div>
+        <div class="cat">Photography</div>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-category="photography" data-title="Indoor Light" data-index="11">
+      <img src="./photo/IMG_0196.jpg" alt="Indoor Light">
+      <div class="gallery-item-overlay">
+        <div class="title">Indoor Light</div>
+        <div class="cat">Photography</div>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-category="photography" data-title="Datacenter Lines" data-index="12">
+      <img src="./photo/IMG_0250.jpg" alt="Datacenter Lines">
+      <div class="gallery-item-overlay">
+        <div class="title">Datacenter Lines</div>
+        <div class="cat">Photography</div>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-category="photography" data-title="Building Rhythm" data-index="13">
+      <img src="./photo/IMG_0306.jpg" alt="Building Rhythm">
+      <div class="gallery-item-overlay">
+        <div class="title">Building Rhythm</div>
+        <div class="cat">Photography</div>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-category="photography" data-title="Soft Portrait" data-index="14">
+      <img src="./photo/IMG_0329.jpg" alt="Soft Portrait">
+      <div class="gallery-item-overlay">
+        <div class="title">Soft Portrait</div>
+        <div class="cat">Photography</div>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-category="photography" data-title="Wedding Moments" data-index="15">
+      <img src="./photo/IMG_0331.jpg" alt="Wedding Moments">
+      <div class="gallery-item-overlay">
+        <div class="title">Wedding Moments</div>
+        <div class="cat">Photography</div>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-category="photography" data-title="Datacenter Glow" data-index="16">
+      <img src="./photo/IMG_0384.jpg" alt="Datacenter Glow">
+      <div class="gallery-item-overlay">
+        <div class="title">Datacenter Glow</div>
+        <div class="cat">Photography</div>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-category="photography" data-title="City Snapshot" data-index="17">
+      <img src="./photo/IMG_0560.jpg" alt="City Snapshot">
+      <div class="gallery-item-overlay">
+        <div class="title">City Snapshot</div>
+        <div class="cat">Photography</div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" id="lightboxClose">✕</button>
+      <button class="lightbox-nav prev" id="lightboxPrev">‹</button>
+      <button class="lightbox-nav next" id="lightboxNext">›</button>
+      <img src="" alt="" id="lightboxImg">
+      <div class="lightbox-info">
+        <div class="title" id="lightboxTitle"></div>
+        <div class="cat" id="lightboxCat"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Afif Aiman — <a href="../index.html">Back to Portfolio</a></p>
+  </footer>
+
+  <script>
+    /* ========== GALLERY FILTER ========== */
+    const tabs = document.querySelectorAll('.gallery-tab');
+    const items = document.querySelectorAll('.gallery-grid > *');
+    const countEl = document.getElementById('galleryCount');
+    const heroBg = document.getElementById('heroBg');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const filter = tab.getAttribute('data-filter');
+
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        // Update hero background
+        if (filter === 'photography') {
+          heroBg.classList.add('photo-bg');
+        } else {
+          heroBg.classList.remove('photo-bg');
+        }
+
+        let visible = 0;
+        items.forEach(item => {
+          const cat = item.getAttribute('data-category');
+          if (filter === 'all' || cat === filter) {
+            item.classList.remove('hide');
+            visible++;
+          } else {
+            item.classList.add('hide');
+          }
+        });
+
+        const label = filter === 'all' ? 'works' : filter === 'drawing' ? 'drawings' : 'photos';
+        countEl.textContent = `${visible} ${label}`;
+      });
+    });
+
+    /* ========== LIGHTBOX ========== */
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxTitle = document.getElementById('lightboxTitle');
+    const lightboxCat = document.getElementById('lightboxCat');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const lightboxPrev = document.getElementById('lightboxPrev');
+    const lightboxNext = document.getElementById('lightboxNext');
+
+    const galleryItems = [...document.querySelectorAll('.gallery-item')];
+    let currentIndex = 0;
+
+    function openLightbox(index) {
+      const item = galleryItems[index];
+      const img = item.querySelector('img');
+
+      // Safety: avoid opening lightbox with missing/failed images
+      if (!img || !img.src) return;
+
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightboxTitle.textContent = item.getAttribute('data-title');
+      lightboxCat.textContent = item.getAttribute('data-category') === 'drawing' ? 'Drawing Art' : 'Photography';
+      currentIndex = index;
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function navigate(dir) {
+      currentIndex = (currentIndex + dir + galleryItems.length) % galleryItems.length;
+      openLightbox(currentIndex);
+    }
+
+    // Hide cards whose images fail to load (fixes the broken “drawing” tab)
+    galleryItems.forEach((item, i) => {
+      const img = item.querySelector('img');
+      if (img) {
+        img.addEventListener('error', () => {
+          item.classList.add('hide');
+
+          // If current filter is showing this, recompute count
+          const activeTab = document.querySelector('.gallery-tab.active');
+          if (activeTab) {
+            const filter = activeTab.getAttribute('data-filter');
+            let visible = 0;
+            document.querySelectorAll('.gallery-grid > *').forEach(el => {
+              const cat = el.getAttribute('data-category');
+              const isHidden = el.classList.contains('hide');
+              if (!isHidden && (filter === 'all' || cat === filter)) visible++;
+            });
+            const label = filter === 'all' ? 'works' : filter === 'drawing' ? 'drawings' : 'photos';
+            countEl.textContent = `${visible} ${label}`;
+          }
+        }, { once: true });
+      }
+
+      item.addEventListener('click', () => openLightbox(i));
+    });
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightboxPrev.addEventListener('click', () => navigate(-1));
+    lightboxNext.addEventListener('click', () => navigate(1));
+
+    lightbox.addEventListener('click', e => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', e => {
+      if (!lightbox.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') navigate(-1);
+      if (e.key === 'ArrowRight') navigate(1);
+    });
+  </script>
+</body>
+
+</html>

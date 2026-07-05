@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Restoren - Experience premium fine dining and culinary art. Awarded 3 Michelin Stars. Book your table online for an unforgettable gastronomic journey.">
+    <title>Restoren | Premium Fine Dining & Culinary Art</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header class="main-header" id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">RESTOREN<span>.</span></a>
+            
+            <nav class="nav-menu" id="nav-menu">
+                <ul>
+                    <li><a href="#" class="nav-link active" data-sec="hero">Home</a></li>
+                    <li><a href="#about" class="nav-link" data-sec="about">Our Story</a></li>
+                    <li><a href="#menu" class="nav-link" data-sec="menu">Menu</a></li>
+                    <li><a href="#gallery" class="nav-link" data-sec="gallery">Gallery</a></li>
+                    <li><a href="#testimonials" class="nav-link" data-sec="testimonials">Reviews</a></li>
+                    <li><a href="#reservation" class="nav-link" data-sec="reservation">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <a href="#reservation" class="btn btn-gold btn-header">Book A Table</a>
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content scroll-reveal">
+            <div class="award-badge">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <span>Three Michelin Stars</span>
+            </div>
+            <h1>The Art of<br><span class="accent-text">Exquisite Dining</span></h1>
+            <p class="hero-subtitle">Experience culinary perfection crafted with passion, precision, and the finest seasonal ingredients sourced from organic local farms.</p>
+            <div class="hero-actions">
+                <a href="#menu" class="btn btn-gold">Explore Menu</a>
+                <a href="#reservation" class="btn btn-outline">Reserve A Table</a>
+            </div>
+        </div>
+        <div class="scroll-down">
+            <a href="#about" aria-label="Scroll to next section">
+                <span class="mouse">
+                    <span class="wheel"></span>
+                </span>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section section-padding" id="about">
+        <div class="container">
+            <div class="grid grid-2">
+                <div class="about-text-column scroll-reveal">
+                    <div class="section-title">
+                        <span class="subtitle">Our Legacy</span>
+                        <h2>A Culinary Journey Built on Passion</h2>
+                    </div>
+                    <p class="about-desc">Founded in 2012, Restoren started with a simple vision: to elevate classic gastronomy into a multisensory art form. Every ingredient is carefully selected, every flavor is meticulously balanced, and every plate is a canvas.</p>
+                    <p class="about-desc">Our kitchen, led by acclaimed Chef Marcus Sterling, blends traditional French cooking techniques with avant-garde culinary innovations, resulting in a dining experience that defies expectations.</p>
+                    
+                    <div class="chef-quote">
+                        <p>"Cooking is an art, but fine dining is a sensory journey that stays in the memory forever."</p>
+                        <div class="chef-signature">
+                            <span class="name">Chef Marcus Sterling</span>
+                            <span class="title">Executive Chef & Owner</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image-column scroll-reveal delay-1">
+                    <div class="image-wrapper">
+                        <img src="assets/chef-about.png" alt="Chef Marcus Sterling plating a dish" class="about-image">
+                        <div class="floating-badge">
+                            <span class="number">12+</span>
+                            <span class="text">Years of Excellence</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu-section section-padding" id="menu">
+        <div class="container">
+            <div class="section-title center scroll-reveal">
+                <span class="subtitle">Culinary Creations</span>
+                <h2>Discover Our Menu</h2>
+                <div class="underline"></div>
+            </div>
+
+            <!-- Categories Tabs -->
+            <div class="menu-categories scroll-reveal delay-1">
+                <button class="category-btn active" data-category="all">All Dishes</button>
+                <button class="category-btn" data-category="starters">Starters</button>
+                <button class="category-btn" data-category="mains">Mains</button>
+                <button class="category-btn" data-category="desserts">Desserts</button>
+                <button class="category-btn" data-category="beverages">Beverages</button>
+            </div>
+
+            <!-- Menu Grid -->
+            <div class="menu-grid scroll-reveal delay-2">
+                
+                <!-- Item 1: Starter -->
+                <div class="menu-card" data-category="starters">
+                    <div class="menu-card-header">
+                        <h3 class="menu-title">Truffle Butter Oysters</h3>
+                        <span class="menu-price">$28</span>
+                    </div>
+                    <p class="menu-desc">Freshly harvested oysters, melted black truffle butter, sea salt flakes, seaweed dust.</p>
+                    <div class="menu-labels">
+                        <span class="label gf">Gluten Free</span>
+                    </div>
+                </div>
+
+                <!-- Item 2: Starter -->
+                <div class="menu-card" data-category="starters">
+                    <div class="menu-card-header">
+                        <h3 class="menu-title">Seared Foie Gras</h3>
+                        <span class="menu-price">$36</span>
+                    </div>
+                    <p class="menu-desc">Pan-seared duck foie gras, caramelized fresh figs, brioche toast, aged balsamic glaze.</p>
+                </div>
+
+                <!-- Item 3: Starter -->
+                <div class="menu-card" data-category="starters">
+                    <div class="menu-card-header">
+                        <h3 class="menu-title">Heirloom Burrata</h3>
+                        <span class="menu-price">$24</span>
+                    </div>
+                    <p class="menu-desc">Creamy heirloom tomato salad, house basil oil infusion, aged modena balsamic, microgreens.</p>
+                    <div class="menu-labels">
+                        <span class="label vg">Vegetarian</span>
+                    </div>
+                </div>
+
+                <!-- Item 4: Main -->
+                <div class="menu-card" data-category="mains">
+                    <div class="menu-card-header">
+                        <h3 class="menu-title">Wagyu Beef Tenderloin</h3>
+                        <span class="menu-price">$68</span>
+                    </div>
+                    <p class="menu-desc">A5 Miyazaki beef, silky smooth potato mousseline, wild chanterelles, rich red wine reduction.</p>
+                    <div class="menu-labels">
+                        <span class="label gf">Gluten Free</span>
+                    </div>
+                </div>
+
+                <!-- Item 5: Main -->
+                <div class="menu-card" data-category="mains">
+                    <div class="menu-card-header">
+                        <h3 class="menu-title">Herb Crust Chilean Seabass</h3>
+                        <span class="menu-price">$52</span>
+                    </div>
+                    <p class="menu-desc">Pan-roasted seabass, fine herb crust, tender asparagus shoots, saffron velouté.</p>
+                </div>
+
+                <!-- Item 6: Main -->
+                <div class="menu-card" data-category="mains">
+                    <div class="menu-card-header">
+                        <h3 class="menu-title">Wild Mushroom Risotto</h3>
+                        <span class="menu-price">$42</span>
+                    </div>
+                    <p class="menu-desc">Creamy Carnaroli rice, organic porcini mushrooms, freshly shaved black truffle, aged parmesan.</p>
+                    <div class="menu-labels">
+                        <span class="label vg">Vegetarian</span>
+                        <span class="label gf">Gluten Free</span>
+                    </div>
+                </div>
+
+                <!-- Item 7: Dessert -->
+                <div class="menu-card" data-category="desserts">
+                    <div class="menu-card-header">
+                        <h3 class="menu-title">Deconstructed Pavlova</h3>
+                        <span class="menu-price">$22</span>
+                    </div>
+                    <p class="menu-desc">Crisp meringue shards, fresh mixed forest berries, vanilla bean cream, passion fruit coulis.</p>
+                    <div class="menu-labels">
+                        <span class="label vg">Vegetarian</span>
+                        <span class="label gf">Gluten Free</span>
+                    </div>
+                </div>
+
+                <!-- Item 8: Dessert -->
+                <div class="menu-card" data-category="desserts">
+                    <div class="menu-card-header">
+                        <h3 class="menu-title">Smoked Chocolate Soufflé</h3>
+                        <span class="menu-price">$24</span>
+                    </div>
+                    <p class="menu-desc">Dark Valrhona chocolate soufflé, Grand Marnier mist, house-made roasted hazelnut gelato.</p>
+                    <div class="menu-labels">
+                        <span class="label vg">Vegetarian</span>
+                    </div>
+                </div>
+
+                <!-- Item 9: Beverage -->
+                <div class="menu-card" data-category="beverages">
+                    <div class="menu-card-header">
+                        <h3 class="menu-title">The Emerald Sage</h3>
+                        <span class="menu-price">$18</span>
+                    </div>
+                    <p class="menu-desc">Artisanal dry gin, fresh cucumber juice, wild elderflower syrup, freshly squeezed lime, bruised sage.</p>
+                </div>
+
+                <!-- Item 10: Beverage -->
+                <div class="menu-card" data-category="beverages">
+                    <div class="menu-card-header">
+                        <h3 class="menu-title">Cabernet Sauvignon 2018</h3>
+                        <span class="menu-price">$25</span>
+                    </div>
+                    <p class="menu-desc">A premium glass of vintage estate Cabernet, notes of dark berries, tobacco, and oak.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section section-padding" id="gallery">
+        <div class="container">
+            <div class="section-title center scroll-reveal">
+                <span class="subtitle">Visual Splendor</span>
+                <h2>Signature Creations & Atmosphere</h2>
+                <div class="underline"></div>
+            </div>
+
+            <div class="gallery-grid scroll-reveal delay-1">
+                <!-- Gallery Item 1 (Image we generated) -->
+                <div class="gallery-item large">
+                    <img src="assets/signature-dish.png" alt="Michelin style signature dish">
+                    <div class="gallery-overlay">
+                        <h4>Signature Culinary Masterpiece</h4>
+                        <p>Scallop, caviar, gold leaf, and saffron velouté</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 2 -->
+                <div class="gallery-item">
+                    <img src="assets/hero-bg.png" alt="Luxury restaurant dining room">
+                    <div class="gallery-overlay">
+                        <h4>The Dining Room</h4>
+                        <p>Sophisticated, cozy, and candlelight set</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="gallery-item">
+                    <img src="assets/chef-about.png" alt="Chef preparing meals">
+                    <div class="gallery-overlay">
+                        <h4>The Kitchen</h4>
+                        <p>Precision and passion in every plate</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section section-padding" id="testimonials">
+        <div class="container">
+            <div class="section-title center scroll-reveal">
+                <span class="subtitle">Critique & Reviews</span>
+                <h2>Accolades from the Critics</h2>
+                <div class="underline"></div>
+            </div>
+
+            <div class="testimonials-slider-container scroll-reveal delay-1">
+                <div class="testimonials-slider" id="testimonials-slider">
+                    
+                    <!-- Slide 1 -->
+                    <div class="testimonial-slide active">
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <blockquote class="quote">
+                            "An absolute masterpiece of flavors. The Wagyu beef literally melted in my mouth, and the service was impeccable. Restoren isn't just a place to eat; it is a gastronomic cathedral."
+                        </blockquote>
+                        <div class="author">
+                            <span class="name">Julian C. Vane</span>
+                            <span class="publication">The New York Dining Review</span>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="testimonial-slide">
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <blockquote class="quote">
+                            "Chef Marcus Sterling has created a sanctuary for culinary enthusiasts. The deconstructed gold leaf pavlova is legendary, combining textures in a way that feels like pure alchemy."
+                        </blockquote>
+                        <div class="author">
+                            <span class="name">Sarah Jenkins</span>
+                            <span class="publication">Gourmet Guide Weekly</span>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="testimonial-slide">
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <blockquote class="quote">
+                            "Restoren defines luxury dining. The atmosphere is warm, intimate, and sophisticated, and the wine list is one of the most comprehensive we've seen in years."
+                        </blockquote>
+                        <div class="author">
+                            <span class="name">Robert Dubois</span>
+                            <span class="publication">Culinary Monthly</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Slider Controls -->
+                <div class="slider-controls">
+                    <button class="control-btn prev-btn" id="prev-review" aria-label="Previous review"><i class="fa-solid fa-arrow-left"></i></button>
+                    <div class="slider-dots" id="slider-dots">
+                        <span class="dot active" data-index="0"></span>
+                        <span class="dot" data-index="1"></span>
+                        <span class="dot" data-index="2"></span>
+                    </div>
+                    <button class="control-btn next-btn" id="next-review" aria-label="Next review"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservation & Contact Section -->
+    <section class="reservation-section section-padding" id="reservation">
+        <div class="container">
+            <div class="grid grid-2 bg-charcoal">
+                
+                <!-- Contact info -->
+                <div class="contact-info-column scroll-reveal">
+                    <div class="section-title">
+                        <span class="subtitle">Details</span>
+                        <h2>Visit Us</h2>
+                    </div>
+                    <p class="contact-text">Reservations are highly recommended. Walk-ins are accommodated based on availability.</p>
+                    
+                    <div class="contact-details">
+                        <div class="detail-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <div>
+                                <h4>Location</h4>
+                                <p>128 Culinary Blvd, Soho, New York, NY 10001</p>
+                            </div>
+                        </div>
+
+                        <div class="detail-item">
+                            <i class="fa-solid fa-clock"></i>
+                            <div>
+                                <h4>Hours</h4>
+                                <p>Mon - Thu: 5:00 PM - 10:00 PM<br>Fri - Sun: 4:00 PM - 11:00 PM</p>
+                            </div>
+                        </div>
+
+                        <div class="detail-item">
+                            <i class="fa-solid fa-phone"></i>
+                            <div>
+                                <h4>Telephone</h4>
+                                <p>+1 (212) 555-8900</p>
+                            </div>
+                        </div>
+
+                        <div class="detail-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <div>
+                                <h4>Inquiries</h4>
+                                <p>reservations@restoren-dining.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reservation Form -->
+                <div class="reservation-form-column scroll-reveal delay-1">
+                    <div class="section-title">
+                        <span class="subtitle">Bookings</span>
+                        <h2>Table Reservation</h2>
+                    </div>
+                    
+                    <form id="booking-form" class="booking-form" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="booking-name">Full Name</label>
+                                <input type="text" id="booking-name" required placeholder="John Doe">
+                                <span class="error-msg">Please enter your name</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="booking-email">Email Address</label>
+                                <input type="email" id="booking-email" required placeholder="john@example.com">
+                                <span class="error-msg">Please enter a valid email address</span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="booking-phone">Phone Number</label>
+                                <input type="tel" id="booking-phone" required placeholder="(123) 456-7890">
+                                <span class="error-msg">Please enter your phone number</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="booking-guests">Number of Guests</label>
+                                <select id="booking-guests" required>
+                                    <option value="" disabled selected>Select guests</option>
+                                    <option value="1">1 Person</option>
+                                    <option value="2">2 People</option>
+                                    <option value="3">3 People</option>
+                                    <option value="4">4 People</option>
+                                    <option value="5">5 People</option>
+                                    <option value="6">6 People</option>
+                                    <option value="7">7 People</option>
+                                    <option value="8">8+ People</option>
+                                </select>
+                                <span class="error-msg">Please select number of guests</span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="booking-date">Date</label>
+                                <input type="date" id="booking-date" required>
+                                <span class="error-msg">Please select a valid future date</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="booking-time">Time</label>
+                                <select id="booking-time" required>
+                                    <option value="" disabled selected>Select time</option>
+                                    <option value="5:00 PM">5:00 PM</option>
+                                    <option value="5:30 PM">5:30 PM</option>
+                                    <option value="6:00 PM">6:00 PM</option>
+                                    <option value="6:30 PM">6:30 PM</option>
+                                    <option value="7:00 PM">7:00 PM</option>
+                                    <option value="7:30 PM">7:30 PM</option>
+                                    <option value="8:00 PM">8:00 PM</option>
+                                    <option value="8:30 PM">8:30 PM</option>
+                                    <option value="9:00 PM">9:00 PM</option>
+                                    <option value="9:30 PM">9:30 PM</option>
+                                </select>
+                                <span class="error-msg">Please select reservation time</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="booking-notes">Special Requests (Dietary, Seating, Occasions)</label>
+                            <textarea id="booking-notes" placeholder="Please let us know of any allergies or if you are celebrating a special occasion..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-gold btn-full" id="booking-submit">
+                            <span class="btn-text">Confirm Table Reservation</span>
+                            <span class="spinner hidden"><i class="fa-solid fa-circle-notch fa-spin"></i></span>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-info">
+                <h3>RESTOREN<span>.</span></h3>
+                <p>Culinary precision and visual luxury, delivering an unforgettable gastronomical experience to culinary lovers.</p>
+                <div class="social-icons">
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="TripAdvisor"><i class="fa-brands fa-tripadvisor"></i></a>
+                    <a href="#" aria-label="Yelp"><i class="fa-brands fa-yelp"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#about">Our Story</a></li>
+                    <li><a href="#menu">Our Menu</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#reservation">Reservations</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-newsletter">
+                <h4>Newsletter</h4>
+                <p>Subscribe to receive news about special chef tastings, seasonal menus, and exclusive events.</p>
+                <form class="newsletter-form" id="newsletter-form">
+                    <input type="email" placeholder="Your Email Address" required aria-label="Email address">
+                    <button type="submit" aria-label="Subscribe"><i class="fa-solid fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-flex">
+                <p>&copy; 2026 Restoren Fine Dining. All Rights Reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Booking Modal -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal-card">
+            <button class="modal-close" id="modal-close" aria-label="Close modal">&times;</button>
+            <div class="modal-body">
+                <div class="modal-icon">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <h2>Reservation Confirmed</h2>
+                <p class="modal-desc">Thank you for choosing Restoren. Your table has been successfully booked.</p>
+                
+                <div class="booking-summary">
+                    <div class="summary-row">
+                        <span class="summary-label">Reserved For:</span>
+                        <span class="summary-val" id="sum-name">John Doe</span>
+                    </div>
+                    <div class="summary-row">
+                        <span class="summary-label">Date & Time:</span>
+                        <span class="summary-val" id="sum-datetime">July 15, 2026 at 7:30 PM</span>
+                    </div>
+                    <div class="summary-row">
+                        <span class="summary-label">Party Size:</span>
+                        <span class="summary-val" id="sum-guests">2 People</span>
+                    </div>
+                    <div class="summary-row">
+                        <span class="summary-label">Reservation ID:</span>
+                        <span class="summary-val highlight" id="sum-code">#RST-89021</span>
+                    </div>
+                </div>
+
+                <p class="modal-footer-note">A confirmation email along with dress code guidelines and directions has been sent to <span id="sum-email">john@example.com</span>.</p>
+                
+                <button class="btn btn-gold btn-full" id="modal-dismiss">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

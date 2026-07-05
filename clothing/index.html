@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AURA — Premium clothing for everyday comfort. Discover our High-End, Mid-End, and Essential lines.">
+  <title>AURA | Premium Minimalist Clothing</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Header / Navigation -->
+  <header>
+    <div class="container nav-container">
+      <a href="#" class="brand">AURA<span>.</span></a>
+      <nav class="navlinks" id="navlinks">
+        <a href="#hero" class="active">Home</a>
+        <a href="#collections">Collections</a>
+        <a href="#about">Our Story</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="cart-trigger" id="cartBtn" aria-label="View Shopping Cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <button class="menu-btn" id="menuBtn" aria-label="Toggle Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="eyebrow">Autumn / Winter Collection</span>
+      <h1>Simplicity in<br><span class="accent">Pure Form</span></h1>
+      <p>Premium fabrications designed to live with you. Explore curated clothing lines crafted for durability, ultimate comfort, and timeless styling.</p>
+      <a href="#collections" class="btn">Shop The Collection</a>
+    </div>
+  </section>
+
+  <!-- Product Collections Section -->
+  <section class="collections-section" id="collections">
+    <div class="sec-head">
+      <h2>Curated Lines</h2>
+      <div class="filter-controls">
+        <button class="filter-tab active" data-filter="all">All Items</button>
+        <button class="filter-tab" data-filter="high">High-End Line</button>
+        <button class="filter-tab" data-filter="mid">Everyday Essentials</button>
+        <button class="filter-tab" data-filter="low">Basic Comforts</button>
+      </div>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="product-grid" id="productGrid">
+      
+      <!-- HIGH-END ITEMS -->
+      <div class="product-card" data-category="high">
+        <div class="prod-img-wrap">
+          <div class="tier-tag tier-high">HIGH-END</div>
+          <svg class="placeholder-svg" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100" height="120" fill="#f4f2ee"/>
+            <path d="M30 40 C35 25, 65 25, 70 40 L75 90 L25 90 Z" fill="#2d2824" opacity="0.85"/>
+            <path d="M50 40 L50 90" stroke="#cfa87f" stroke-width="1.5"/>
+          </svg>
+          <button class="add-to-cart-btn" data-id="1" data-name="Cashmere Overcoat" data-price="480" data-img="high">Add to Bag</button>
+        </div>
+        <div class="prod-info">
+          <h3>Cashmere Overcoat</h3>
+          <span class="desc">100% Mongolian Cashmere, Tailored silhouette</span>
+          <span class="price">$480.00</span>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="high">
+        <div class="prod-img-wrap">
+          <div class="tier-tag tier-high">HIGH-END</div>
+          <svg class="placeholder-svg" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100" height="120" fill="#f4f2ee"/>
+            <path d="M35 30 L65 30 L68 95 L32 95 Z" fill="#363d4a" opacity="0.85"/>
+            <path d="M35 30 C45 35, 55 35, 65 30" fill="none" stroke="#fff" stroke-width="2"/>
+          </svg>
+          <button class="add-to-cart-btn" data-id="2" data-name="Mulberry Silk Dress" data-price="320" data-img="silk">Add to Bag</button>
+        </div>
+        <div class="prod-info">
+          <h3>Mulberry Silk Dress</h3>
+          <span class="desc">Pure silk, fluid drape, elegant shine</span>
+          <span class="price">$320.00</span>
+        </div>
+      </div>
+
+      <!-- MID-END ITEMS -->
+      <div class="product-card" data-category="mid">
+        <div class="prod-img-wrap">
+          <div class="tier-tag tier-mid">MID-END</div>
+          <svg class="placeholder-svg" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100" height="120" fill="#f4f2ee"/>
+            <path d="M25 35 L40 30 L50 35 L60 30 L75 35 L70 85 L30 85 Z" fill="#58677a" opacity="0.85"/>
+          </svg>
+          <button class="add-to-cart-btn" data-id="3" data-name="Selvedge Denim Jacket" data-price="145" data-img="denim">Add to Bag</button>
+        </div>
+        <div class="prod-info">
+          <h3>Selvedge Denim Jacket</h3>
+          <span class="desc">13.5oz Japanese denim, raw finish</span>
+          <span class="price">$145.00</span>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="mid">
+        <div class="prod-img-wrap">
+          <div class="tier-tag tier-mid">MID-END</div>
+          <svg class="placeholder-svg" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100" height="120" fill="#f4f2ee"/>
+            <path d="M30 35 L70 35 L70 85 L30 85 Z" fill="#695f57" opacity="0.85"/>
+            <path d="M40 35 L40 85 M60 35 L60 85" stroke="#fff" opacity="0.3"/>
+          </svg>
+          <button class="add-to-cart-btn" data-id="4" data-name="Merino Knit Sweater" data-price="98" data-img="merino">Add to Bag</button>
+        </div>
+        <div class="prod-info">
+          <h3>Merino Knit Sweater</h3>
+          <span class="desc">Fine Australian wool, temperature regulating</span>
+          <span class="price">$98.00</span>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="mid">
+        <div class="prod-img-wrap">
+          <div class="tier-tag tier-mid">MID-END</div>
+          <svg class="placeholder-svg" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100" height="120" fill="#f4f2ee"/>
+            <path d="M30 40 L70 40 L65 95 L35 95 Z" fill="#7d7367" opacity="0.85"/>
+          </svg>
+          <button class="add-to-cart-btn" data-id="5" data-name="Smart Chino Pants" data-price="85" data-img="chinos">Add to Bag</button>
+        </div>
+        <div class="prod-info">
+          <h3>Smart Chino Pants</h3>
+          <span class="desc">Stretch twill, wrinkle-resistant finish</span>
+          <span class="price">$85.00</span>
+        </div>
+      </div>
+
+      <!-- LOW-END ITEMS -->
+      <div class="product-card" data-category="low">
+        <div class="prod-img-wrap">
+          <div class="tier-tag tier-low">LOW-END</div>
+          <svg class="placeholder-svg" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100" height="120" fill="#f4f2ee"/>
+            <path d="M30 35 L70 35 L68 80 L32 80 Z" fill="#999285" opacity="0.7"/>
+          </svg>
+          <button class="add-to-cart-btn" data-id="6" data-name="Supima Cotton Tee" data-price="29" data-img="tee">Add to Bag</button>
+        </div>
+        <div class="prod-info">
+          <h3>Supima Cotton Tee</h3>
+          <span class="desc">Extra-long staple cotton, crew neck basics</span>
+          <span class="price">$29.00</span>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="low">
+        <div class="prod-img-wrap">
+          <div class="tier-tag tier-low">LOW-END</div>
+          <svg class="placeholder-svg" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100" height="120" fill="#f4f2ee"/>
+            <path d="M35 45 L65 45 L62 90 L38 90 Z" fill="#3a3630" opacity="0.75"/>
+          </svg>
+          <button class="add-to-cart-btn" data-id="7" data-name="Essential Shorts" data-price="35" data-img="shorts">Add to Bag</button>
+        </div>
+        <div class="prod-info">
+          <h3>Essential Shorts</h3>
+          <span class="desc">Lightweight active fabric, drawstring waist</span>
+          <span class="price">$35.00</span>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="low">
+        <div class="prod-img-wrap">
+          <div class="tier-tag tier-low">LOW-END</div>
+          <svg class="placeholder-svg" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100" height="120" fill="#f4f2ee"/>
+            <rect x="40" y="30" width="20" height="60" rx="3" fill="#a89a87"/>
+            <rect x="42" y="32" width="16" height="56" rx="2" fill="#fff" opacity="0.2"/>
+          </svg>
+          <button class="add-to-cart-btn" data-id="8" data-name="Crew Socks 3-Pack" data-price="15" data-img="socks">Add to Bag</button>
+        </div>
+        <div class="prod-info">
+          <h3>Crew Socks 3-Pack</h3>
+          <span class="desc">Ribbed knit, soft cushioning soles</span>
+          <span class="price">$15.00</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section" id="about">
+    <div class="container about-grid">
+      <div class="about-text">
+        <span class="eyebrow">Craftsmanship</span>
+        <h2>Minimalist Living,<br>Maximum Quality</h2>
+        <p>AURA represents a commitment to visual silence and physical ease. By removing extraneous embellishments, we focus entirely on yarn selection, fit proportions, and subtle textural variations.</p>
+        <p>Our fabrics are ethically sourced, and our manufacturing partners adhere to rigorous ecological guidelines to minimize environmental impact.</p>
+      </div>
+      <div class="about-visual">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;background:#1a1714;border:1px solid #2d2621;">
+          <circle cx="100" cy="100" r="60" fill="none" stroke="#cfa87f" stroke-width="1" stroke-dasharray="4 4"/>
+          <path d="M60 140 L140 60" stroke="#9A9284" stroke-width="1.5"/>
+          <text x="100" y="150" font-family="'JetBrains Mono', monospace" font-size="7" fill="#9A9284" text-anchor="middle" letter-spacing="1">DESIGN PATTERN // 01</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <h3>AURA.</h3>
+        <p>Premium fabrications designed to live with you.</p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>info@auraclothing.com</p>
+        <p>1-800-555-AURA</p>
+      </div>
+      <div>
+        <h4>Sub-Project</h4>
+        <p>© 2026 Afif Aiman Portfolio. All Mock Brand Credits Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Shopping Cart Sidebar Drawer -->
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-content">
+      <div class="cart-header">
+        <h2>Your Bag</h2>
+        <button class="cart-close-btn" id="cartCloseBtn" aria-label="Close Shopping Cart">✕</button>
+      </div>
+      <div class="cart-items-container" id="cartItemsContainer">
+        <!-- Rendered dynamically via javascript -->
+      </div>
+      <div class="cart-footer">
+        <div class="cart-total-row">
+          <span>Subtotal</span>
+          <span id="cartSubtotal">$0.00</span>
+        </div>
+        <button class="checkout-btn" id="checkoutBtn">Proceed to Checkout</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
