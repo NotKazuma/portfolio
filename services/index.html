@@ -26,14 +26,7 @@
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/animations.css">
   <link rel="stylesheet" href="../css/components.css">
-<style>
-  :root {
-    --amber: #00e5ff !important;
-    --panel-2: #05161e !important;
-    --bg: #030a0f !important;
-    --panel: #061117 !important;
-  }
-</style>
+<link rel="stylesheet" href="css/services.css">
 </head>
 
 <body>
@@ -63,7 +56,7 @@
         <a href="../index.html#work">Showcase</a>
         <a href="../index.html#gallery">Gallery</a>
         <a href="../index.html#resume">Resume</a>
-        <a href="#" style="color: var(--amber); font-weight: 600;">Hire Me</a>
+        <a href="#" class="hire-me">Hire Me</a>
         <a href="#contact">Contact</a>
       </div>
       <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
@@ -72,19 +65,21 @@
     </nav>
   </header>
 
+  <main>
+
   <!-- ================================================================
      HERO
 ================================================================ -->
-    <section class="hero" id="top" style="display: flex; align-items: center; justify-content: center; text-align: center; min-height: 80vh; padding-top: 100px;">
+    <section class="hero" id="top">
     <div class="hero-text reveal">
       <span class="eyebrow" style="color: var(--amber);">// DIGITAL SOLUTIONS AGENCY</span>
-      <h1 style="font-size: 4.5rem; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 20px;">ENGINEERING <span style="color: var(--amber);">THE WEB.</span></h1>
-      <p style="color:var(--muted); max-width: 600px; margin: 0 auto 2rem auto; font-size: 1.15rem; line-height: 1.6;">
+      <h1>ENGINEERING <span style="color: var(--amber);">THE WEB.</span></h1>
+      <p>
         Specializing in rapid MVP development, full-stack applications, and high-performance digital experiences. From concept to deployment in record time.
       </p>
-      <div style="display: flex; gap: 15px; justify-content: center;">
-        <a href="#pricing" class="cta-btn" style="background: var(--amber); color: #000;">VIEW PRICING &darr;</a>
-        <a href="#work" class="cta-btn" style="background: transparent; border: 1px solid var(--amber); color: var(--amber);">PROJECTS</a>
+      <div class="cta-buttons">
+        <a href="#pricing" class="cta-btn">VIEW PRICING &darr;</a>
+        <a href="#work" class="cta-btn secondary">PROJECTS</a>
       </div>
     </div>
   </section>
@@ -111,7 +106,7 @@
     <div class="portfolio-grid reveal-stagger">
 
       <!-- Card 6 (Web Development) -->
-      <div class="project-card web-project" data-category="web">
+      <article class="project-card web-project" data-category="web" aria-labelledby="proj-title-1">
 <a href="https://clinquant-gecko-3208d1.netlify.app" target="_blank" rel="noopener" class="thumb-container">
           <div class="mini-corner tl"></div>
           <div class="mini-corner tr"></div>
@@ -134,19 +129,19 @@
         <div class="card-details">
           <div class="card-meta">
             <span class="eyebrow">Full-Stack Solution</span>
-            <span class="mono" style="font-size:.65rem;color:var(--muted)">DEV_01</span>
+            <span class="mono">DEV_01</span>
           </div>
-          <h3 class="proj-title">Restoren E-Commerce</h3>
+          <h3 class="proj-title" id="proj-title-1">Restoren E-Commerce</h3>
           <div class="tech-tags">
             <span>Vanilla JS</span><span>CSS3</span><span>HTML5</span>
           </div>
-          <p style="color:var(--muted); font-size: 0.85rem; margin: 8px 0; line-height: 1.5;">Architected a responsive, dynamic restaurant ordering interface with high-performance CSS grid layouts and modular JavaScript. Optimized for rapid local deployment.</p>
+          <p>Architected a responsive, dynamic restaurant ordering interface with high-performance CSS grid layouts and modular JavaScript. Optimized for rapid local deployment.</p>
 <a href="https://celadon-puffpuff-ca293a.netlify.app" target="_blank" rel="noopener" class="card-link">↗ Visit Live Site</a>
         </div>
-      </div>
+      </article>
 
       <!-- Card 7 (Web Development) -->
-      <div class="project-card web-project" data-category="web">
+      <article class="project-card web-project" data-category="web" aria-labelledby="proj-title-2">
 <a href="https://joyful-fenglisu-0a3057.netlify.app" target="_blank" rel="noopener" class="thumb-container">
           <div class="mini-corner tl"></div>
           <div class="mini-corner tr"></div>
@@ -169,16 +164,16 @@
         <div class="card-details">
           <div class="card-meta">
             <span class="eyebrow">Event Platform</span>
-            <span class="mono" style="font-size:.65rem;color:var(--muted)">DEV_02</span>
+            <span class="mono">DEV_02</span>
           </div>
-          <h3 class="proj-title">Wedding RSVPs</h3>
+          <h3 class="proj-title" id="proj-title-2">Wedding RSVPs</h3>
           <div class="tech-tags">
             <span>Tailwind</span><span>Alpine.js</span><span>Supabase</span>
           </div>
-          <p style="color:var(--muted); font-size: 0.85rem; margin: 8px 0; line-height: 1.5;">Built a seamless digital invitation and RSVP management system. Delivered a 100% success rate on guest data capture with zero downtime during the event month.</p>
+          <p>Built a seamless digital invitation and RSVP management system. Delivered a 100% success rate on guest data capture with zero downtime during the event month.</p>
 <a href="https://joyful-fenglisu-0a3057.netlify.app" target="_blank" rel="noopener" class="card-link">↗ Visit Live Site</a>
         </div>
-      </div>
+      </article>
 
       <!-- Card 8 (Web Development) -->
       <div class="project-card web-project" data-category="web">
@@ -396,6 +391,8 @@
       </div>
     </div>
   </section>
+
+</main>
 
   <!-- ================================================================
      FOOTER

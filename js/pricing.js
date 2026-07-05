@@ -3,11 +3,12 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!currencySelector) return;
 
   const priceElements = document.querySelectorAll(".price-value");
-  
+  if (priceElements.length === 0) return;
+
   // Base currency is MYR
   let rates = { MYR: 1 };
-  
-  // Helper to get currency symbol
+
+  // Helper to get currency symbol robustly
   function getCurrencySymbol(currencyCode) {
     try {
       const formatter = new Intl.NumberFormat('en-US', {
@@ -16,71 +17,71 @@ document.addEventListener("DOMContentLoaded", () => {
         minimumFractionDigits: 0,
         maximumFractionDigits: 0
       });
-      // Extract just the symbol part by formatting 0 and replacing numbers
       const parts = formatter.formatToParts(0);
       const symbolPart = parts.find(part => part.type === 'currency');
       return symbolPart ? symbolPart.value : currencyCode;
     } catch (e) {
+      console.warn(`Could not get symbol for currency: ${currencyCode}`);
       return currencyCode;
     }
   }
 
-  // Fetch live exchange rates using ExchangeRate-API
+  // Fetch live exchange rates from a reliable API
   async function fetchExchangeRates() {
     try {
       const response = await fetch("https://open.er-api.com/v6/latest/MYR");
-      const data = await response.json();
-      
-      if (data.result === "success") {
-        rates = data.rates;
-        
-        // Dynamically populate the select with all currencies
-        const sortedCurrencies = Object.keys(rates).sort();
-        
-        // Clear existing options (keep the default ones if you want, but better to clear)
-        currencySelector.innerHTML = "";
-        
-        sortedCurrencies.forEach(currency => {
-          const option = document.createElement("option");
-          option.value = currency;
-          option.text = `${currency} (${getCurrencySymbol(currency)})`;
-          if (currency === "USD") {
-            option.selected = true;
-          }
-          currencySelector.appendChild(option);
-        });
+      if (!response.ok) throw new Error(`API request failed with status ${response.status}`);
 
-        // Trigger initial conversion
-        convertPrices(currencySelector.value);
-      }
+      const data = await response.json();
+      if (data.result !== "success") throw new Error("API returned an error.");
+
+      rates = data.rates;
+
+      // Dynamically populate the select menu with sorted currencies
+      const sortedCurrencies = Object.keys(rates).sort();
+      currencySelector.innerHTML = ""; // Clear existing options
+
+      sortedCurrencies.forEach(currency => {
+        const option = document.createElement("option");
+        option.value = currency;
+        option.textContent = `${currency} (${getCurrencySymbol(currency)})`;
+        currencySelector.appendChild(option);
+      });
+
+      // Set default selection to USD or a fallback
+      currencySelector.value = rates.USD ? 'USD' : 'MYR';
+
+      // Trigger initial conversion
+      convertPrices(currencySelector.value);
+
     } catch (error) {
       console.error("Failed to fetch exchange rates:", error);
+      // Optionally, hide the selector if rates can't be fetched
+      currencySelector.style.display = 'none';
     }
   }
 
-  // Convert and update prices in DOM
+  // Convert and update prices in the DOM
   function convertPrices(targetCurrency) {
     const rate = rates[targetCurrency];
-    const symbol = getCurrencySymbol(targetCurrency);
+    if (!rate) return; // Exit if the rate for the target currency isn't available
 
-    if (!rate) return; // If API failed, keep default
+    const symbol = getCurrencySymbol(targetCurrency);
 
     priceElements.forEach(el => {
       const basePriceMYR = parseFloat(el.getAttribute("data-myr"));
-      
-      if (!isNaN(basePriceMYR)) {
-        let convertedPrice = basePriceMYR * rate;
-        let formattedPrice = Math.round(convertedPrice).toLocaleString();
-        
-        // Some symbols have spaces, some don't. We'll just separate them with a space for clarity.
-        el.innerText = `${symbol} ${formattedPrice}`;
-      }
+      if (isNaN(basePriceMYR)) return;
+
+      const convertedPrice = basePriceMYR * rate;
+      const formattedPrice = Math.round(convertedPrice).toLocaleString();
+
+      el.textContent = `${symbol} ${formattedPrice}`;
     });
   }
 
-  // Event Listener
+  // Event Listener for currency changes
   currencySelector.addEventListener("change", (e) => {
-    convertPrices(e.target.value);
+    if (e.target) convertPrices(e.target.value);
   });
 
   // Initialize

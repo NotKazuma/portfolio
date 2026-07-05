@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const spot = document.createElement('div');
     spot.className = 'cursor-spotlight';
     document.body.appendChild(spot);
-    
+
     let mouseX = 0;
     let mouseY = 0;
     let isPending = false;
@@ -34,62 +34,83 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ================================================================
      2. SCROLL REVEAL — simple elements
   ================================================================ */
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
+  try {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
 
-  document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => {
-    revealObserver.observe(el);
-  });
+    document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => {
+      if (el) revealObserver.observe(el);
+    });
+  } catch (e) {
+    console.error('Scroll reveal observer failed:', e);
+  }
 
   /* ================================================================
      3. ACTIVE NAV LINK — highlights current section
   ================================================================ */
-  const sections  = document.querySelectorAll('section[id]');
-  const navLinks  = document.querySelectorAll('.navlinks a');
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.navlinks a');
 
-  const navObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        navLinks.forEach(a => a.classList.remove('active'));
-        const active = document.querySelector(`.navlinks a[href="#${entry.target.id}"]`);
-        active?.classList.add('active');
-      }
-    });
-  }, { rootMargin: '-40% 0px -55% 0px' });
+  if (sections.length > 0 && navLinks.length > 0) {
+    try {
+      const navObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            navLinks.forEach(a => a.classList.remove('active'));
+            const activeLink = document.querySelector(`.navlinks a[href="#${entry.target.id}"]`);
+            if (activeLink) activeLink.classList.add('active');
+          }
+        });
+      }, { rootMargin: '-40% 0px -55% 0px' });
 
-  sections.forEach(s => navObserver.observe(s));
+      sections.forEach(s => navObserver.observe(s));
+    } catch (e) {
+      console.error('Nav observer failed:', e);
+    }
+  }
 
   /* ================================================================
      4. TYPING EFFECT — hero role line
   ================================================================ */
   const roleEl = document.getElementById('role-typing');
   if (roleEl) {
-    const roles  = ['Teacher', 'Video Editor', 'Web Developer', 'Digital Creator'];
+    const roles = ['Teacher', 'Video Editor', 'Web Developer', 'Digital Creator'];
     const cursor = document.createElement('span');
     cursor.className = 'typing-cursor';
     roleEl.appendChild(cursor);
 
-    let ri = 0, ci = 0, deleting = false;
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
 
     function type() {
-      const current = roles[ri];
-      if (deleting) {
-        roleEl.firstChild.nodeValue = current.slice(0, --ci);
-        if (ci === 0) { deleting = false; ri = (ri + 1) % roles.length; setTimeout(type, 500); return; }
+      const currentRole = roles[roleIndex];
+      let typeSpeed = isDeleting ? 55 : 95;
+
+      if (isDeleting) {
+        roleEl.firstChild.nodeValue = currentRole.slice(0, --charIndex);
+        if (charIndex === 0) {
+          isDeleting = false;
+          roleIndex = (roleIndex + 1) % roles.length;
+          typeSpeed = 500; // Pause before typing new role
+        }
       } else {
-        roleEl.firstChild.nodeValue = current.slice(0, ++ci);
-        if (ci === current.length) { deleting = true; setTimeout(type, 1800); return; }
+        roleEl.firstChild.nodeValue = currentRole.slice(0, ++charIndex);
+        if (charIndex === currentRole.length) {
+          isDeleting = true;
+          typeSpeed = 1800; // Pause before deleting
+        }
       }
-      setTimeout(type, deleting ? 55 : 95);
+      setTimeout(type, typeSpeed);
     }
 
-    // Insert text node before the cursor
+    // Insert text node before the cursor and start
     roleEl.insertBefore(document.createTextNode(''), cursor);
     setTimeout(type, 800);
   }
@@ -100,103 +121,128 @@ document.addEventListener('DOMContentLoaded', () => {
   const resumeCard = document.querySelector('.resume-card');
   if (resumeCard) {
     // Set CSS custom property for each bar
-    resumeCard.querySelectorAll('.bar-fill').forEach(bar => {
-      const target = bar.getAttribute('data-width') || bar.style.width || '0%';
-      bar.style.setProperty('--target-w', target);
-      bar.style.width = '0';   // start at 0
+    const bars = resumeCard.querySelectorAll('.bar-fill');
+    bars.forEach(bar => {
+      const targetWidth = bar.getAttribute('data-width') || '0%';
+      bar.style.setProperty('--target-w', targetWidth);
+      bar.style.width = '0'; // Start at 0
     });
 
-    const skillsObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('skills-animated');
-          skillsObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.3 });
+    try {
+      const skillsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('skills-animated');
+            skillsObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 });
 
-    skillsObserver.observe(resumeCard);
+      skillsObserver.observe(resumeCard);
+    } catch (e) {
+      console.error('Skills observer failed:', e);
+    }
   }
 
   /* ================================================================
      6. RESUME CARD ACCENT LINE — reveal on scroll
   ================================================================ */
-  const resumeCardReveal = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('is-visible'); resumeCardReveal.unobserve(e.target); }
+  try {
+    const resumeCardReveal = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-visible');
+          resumeCardReveal.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.resume-card').forEach(c => {
+      if (c) resumeCardReveal.observe(c);
     });
-  }, { threshold: 0.2 });
-  document.querySelectorAll('.resume-card').forEach(c => resumeCardReveal.observe(c));
+  } catch (e) {
+    console.error('Resume card reveal observer failed:', e);
+  }
 
   /* ================================================================
      7. CONTACT FORM — AJAX submit via FormSubmit.co → aimanskspp@gmail.com
   ================================================================ */
-  const form      = document.getElementById('contactForm');
-  const submitBtn = document.getElementById('submitBtn');
-  if (form && submitBtn) {
+  const form = document.getElementById('contactForm');
+  if (form) {
+    const submitBtn = form.querySelector('#submitBtn');
+    const formAction = form.action || 'https://formsubmit.co/aimanskspp@gmail.com';
 
+    if (submitBtn) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      // Basic client-side validation
-      const name    = form.querySelector('[name="name"]').value.trim();
-      const email   = form.querySelector('[name="email"]').value.trim();
-      const message = form.querySelector('[name="message"]').value.trim();
-      if (!name || !email || !message) return;
-
-      // Loading state
-      submitBtn.disabled    = true;
-      submitBtn.textContent = 'Sending…';
-
-      const formAction = 'https://formsubmit.co/aimanskspp@gmail.com';
-
-      try {
-        const data = new FormData(form);
-        const res  = await fetch(formAction, {
-          method:  'POST',
-          body:    data,
-          headers: { 'Accept': 'application/json' },
-        });
-
-        if (res.ok) {
-          window.location.href = form.querySelector('[name="_next"]').value || 'thanks.html';
-        } else {
-          throw new Error('Server error');
+        // Client-side validation
+        const nameInput = form.querySelector('[name="name"]');
+        const emailInput = form.querySelector('[name="email"]');
+        const messageInput = form.querySelector('[name="message"]');
+        if (!nameInput?.value.trim() || !emailInput?.value.trim() || !messageInput?.value.trim()) {
+          return;
         }
-      } catch {
-        submitBtn.textContent = '✕ Failed — Try Again';
-        submitBtn.style.borderColor = '#c0392b';
-        submitBtn.style.color = '#c0392b';
-        submitBtn.disabled = false;
-        setTimeout(() => {
-          submitBtn.textContent = 'Send Message';
-          submitBtn.style.borderColor = '';
-          submitBtn.style.color = '';
-        }, 3500);
-      }
-    });
-  }
 
+        // Loading state
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending…';
+
+        try {
+          const formData = new FormData(form);
+          const response = await fetch(formAction, {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' },
+          });
+
+          if (!response.ok) {
+            throw new Error(`Server error: ${response.status}`);
+          }
+
+          const nextUrl = form.querySelector('[name="_next"]')?.value || 'thanks.html';
+          window.location.href = nextUrl;
+
+        } catch (error) {
+          console.error('Form submission failed:', error);
+          submitBtn.textContent = '✕ Failed — Try Again';
+          submitBtn.classList.add('error');
+          submitBtn.disabled = false;
+
+          setTimeout(() => {
+            submitBtn.textContent = 'Send Message';
+            submitBtn.classList.remove('error');
+          }, 3500);
+        }
+      });
+    }
+  }
   /* ================================================================
      8. SHOWCASE CATEGORY FILTER
   ================================================================ */
   const filterWrapper = document.querySelector('.showcase-filters');
-  const projectCards  = document.querySelectorAll('.project-card');
+  const projectCards = document.querySelectorAll('.project-card');
 
   if (filterWrapper && projectCards.length > 0) {
-    // Update counts dynamically
-    const allCount   = projectCards.length;
-    const videoCount = document.querySelectorAll('.project-card[data-category="video"]').length;
-    const webCount   = document.querySelectorAll('.project-card[data-category="web"]').length;
+    const filterBtns = filterWrapper.querySelectorAll('.filter-btn');
+    const allBtn = filterWrapper.querySelector('[data-filter="all"]');
+    const videoBtn = filterWrapper.querySelector('[data-filter="video"]');
+    const webBtn = filterWrapper.querySelector('[data-filter="web"]');
 
-    const pad = n => String(n).padStart(2, '0');
-    filterWrapper.querySelector('[data-filter="all"]').textContent   = `ALL // ${pad(allCount)}`;
-    filterWrapper.querySelector('[data-filter="video"]').textContent = `VIDEOS // ${pad(videoCount)}`;
-    filterWrapper.querySelector('[data-filter="web"]').textContent   = `WEBSITES // ${pad(webCount)}`;
+    // Update counts dynamically
+    if (allBtn) {
+      allBtn.textContent = `ALL // ${String(projectCards.length).padStart(2, '0')}`;
+    }
+    if (videoBtn) {
+      const videoCount = document.querySelectorAll('.project-card[data-category="video"]').length;
+      videoBtn.textContent = `VIDEOS // ${String(videoCount).padStart(2, '0')}`;
+    }
+    if (webBtn) {
+      const webCount = document.querySelectorAll('.project-card[data-category="web"]').length;
+      webBtn.textContent = `WEBSITES // ${String(webCount).padStart(2, '0')}`;
+    }
 
     // Attach event listeners
-    const filterBtns = filterWrapper.querySelectorAll('.filter-btn');
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         const filterValue = btn.getAttribute('data-filter');
@@ -207,24 +253,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Filter and animate cards
         projectCards.forEach(card => {
-          const category = card.getAttribute('data-category');
+          const cardCategory = card.getAttribute('data-category');
+          const shouldShow = (filterValue === 'all' || cardCategory === filterValue);
 
-          if (filterValue === 'all' || category === filterValue) {
-            // First display it in the grid layout (remove .hide)
+          // Use a transition-based approach for smoother animations
+          if (shouldShow) {
             card.classList.remove('hide');
-            // Give browser a frame to layout before fading in
-            setTimeout(() => {
+            requestAnimationFrame(() => {
               card.classList.remove('fade-out');
-            }, 30);
+            });
           } else {
-            // Start the fade-out scaling animation
             card.classList.add('fade-out');
-            // Once transition finishes, hide from grid (display: none)
-            setTimeout(() => {
-              if (card.classList.contains('fade-out')) {
-                card.classList.add('hide');
-              }
-            }, 300);
+            card.addEventListener('transitionend', () => {
+              card.classList.add('hide');
+            }, { once: true });
           }
         });
       });

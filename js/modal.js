@@ -4,54 +4,75 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  const videoModal  = document.getElementById('videoModal');
+  const videoModal = document.getElementById('videoModal');
   const modalIframe = document.getElementById('modalIframe');
-  const modalClose  = document.getElementById('modalClose');
-  if (!videoModal) return;
-
-  const modalOverlay = videoModal.querySelector('.modal-overlay');
-
+  const modalClose = document.getElementById('modalClose');
   const fallbackLink = document.getElementById('modalFallbackLink');
 
+  if (!videoModal || !modalIframe || !modalClose) {
+    console.error('Modal elements not found. Aborting modal script.');
+    return;
+  }
+
+  const modalOverlay = videoModal.querySelector('.modal-overlay');
   let activeElementBeforeModal = null;
 
   function openVideo(videoId, triggerEl) {
     activeElementBeforeModal = triggerEl || document.activeElement;
     modalIframe.src = `https://drive.google.com/file/d/${videoId}/preview`;
+
     if (fallbackLink) {
       fallbackLink.href = `https://drive.google.com/file/d/${videoId}/view?usp=sharing`;
     }
-    videoModal.classList.add('open');
+
     document.body.style.overflow = 'hidden';
-    setTimeout(() => modalClose?.focus(), 100);
+    videoModal.classList.add('open');
+
+    // Focus on the close button after the transition for accessibility
+    videoModal.addEventListener('transitionend', () => {
+      modalClose.focus();
+    }, { once: true });
   }
 
   function closeVideo() {
     videoModal.classList.remove('open');
-    modalIframe.src = '';
     document.body.style.overflow = '';
+
+    // Stop the video by clearing the iframe src
+    modalIframe.src = '';
+
     if (activeElementBeforeModal) {
       activeElementBeforeModal.focus();
     }
   }
 
-  // Attach to every project card
-  document.querySelectorAll('.project-card').forEach(card => {
+  // Attach event listeners to project cards
+  document.querySelectorAll('.project-card[data-video-id]').forEach(card => {
     const videoId = card.getAttribute('data-video-id');
     if (!videoId) return;
 
-    card.querySelector('.thumb-container')?.addEventListener('click', (e) => openVideo(videoId, e.currentTarget));
-    card.querySelector('.play-trigger')?.addEventListener('click', e => {
-      e.preventDefault();
-      openVideo(videoId, e.currentTarget);
-    });
+    const thumb = card.querySelector('.thumb-container');
+    const playButton = card.querySelector('.play-trigger');
+
+    if (thumb) {
+      thumb.addEventListener('click', (e) => openVideo(videoId, e.currentTarget));
+    }
+    if (playButton) {
+      playButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        openVideo(videoId, e.currentTarget);
+      });
+    }
   });
 
-  modalClose?.addEventListener('click', closeVideo);
-  modalOverlay?.addEventListener('click', closeVideo);
+  // Listeners for closing the modal
+  if(modalClose) modalClose.addEventListener('click', closeVideo);
+  if(modalOverlay) modalOverlay.addEventListener('click', closeVideo);
 
-  window.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && videoModal.classList.contains('open')) closeVideo();
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && videoModal.classList.contains('open')) {
+      closeVideo();
+    }
   });
 
 });

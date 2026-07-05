@@ -44,11 +44,11 @@ img { display: block; max-width: 100%; }
 
 /* ---------- LAYOUT HELPERS ---------- */
 .container { max-width: 1200px; margin: 0 auto; padding: 0 28px; }
-section { max-width: 1200px; margin: 0 auto; padding: 90px 28px; scroll-margin-top: 80px; }
+section { max-width: 1200px; margin: 0 auto; padding: 60px 20px; scroll-margin-top: 80px; }
 .divider { height: 1px; background: var(--line); max-width: 1200px; margin: 0 auto; }
 .sec-head {
   display: flex; align-items: baseline; justify-content: space-between;
-  gap: 24px; margin-bottom: 44px; flex-wrap: wrap;
+  gap: 24px; margin-bottom: 32px; flex-wrap: wrap;
 }
 .sec-head h2 {
   font-family: 'Anton', sans-serif;
@@ -71,21 +71,53 @@ body::before {
 }
 
 /* ---------- CURSOR SPOTLIGHT ---------- */
-.cursor-spotlight {
-  position: fixed;
-  width: 420px; height: 420px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(232,130,61,.07) 0%, transparent 70%);
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-  transition: opacity .4s;
-  opacity: 0;
+@media (hover: hover) {
+  .cursor-spotlight {
+    position: fixed;
+    width: 420px; height: 420px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(232,130,61,.07) 0%, transparent 70%);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    transition: opacity .4s;
+    opacity: 0;
+  }
+  body:hover .cursor-spotlight { opacity: 1; }
 }
-body:hover .cursor-spotlight { opacity: 1; }
 
 /* ---------- RESPONSIVE ---------- */
-@media (max-width: 860px) {
-  section { padding: 60px 20px; }
-  .sec-head { margin-bottom: 32px; }
+@media (min-width: 860px) {
+  section { padding: 90px 28px; }
+  .sec-head { margin-bottom: 44px; }
+}
+
+/* Custom Styles from Inline */
+nav .navlinks a.hire-me {
+  color: var(--amber);
+  font-weight: 600;
+}
+.project-card .card-meta .mono {
+  font-size: .65rem;
+  color: var(--muted);
+}
+.project-card p {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin: 8px 0;
+  line-height: 1.5;
+}
+.gallery-card.drawing-card .gc-bg {
+  background-image: url('../gallery/images/drawing_hero.png');
+}
+.gallery-card.photo-card .gc-bg {
+  background-image: url('../gallery/images/photo_hero.png');
+}
+.contact-info-block p {
+  color: var(--muted);
+  line-height: 1.75;
+  margin-bottom: 28px;
+}
+.contact-form input[name="_honey"] {
+  display: none;
 }
