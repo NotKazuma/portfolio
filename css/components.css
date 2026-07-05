@@ -63,6 +63,27 @@ nav {
 .menu-btn.open span:nth-child(2) { opacity: 0; }
 .menu-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
+@media (min-width: 861px) {
+  .navlinks {
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    gap: 36px;
+    border: none;
+    max-height: none;
+    overflow: visible;
+  }
+  .navlinks a {
+    padding: 6px 0;
+    width: auto;
+    border: none;
+  }
+  .menu-btn {
+    display: none;
+  }
+}
+
+
 /* ---------- HERO ---------- */
 .hero {
   max-width: 1200px; margin: 0 auto;
